@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="w-full h-full  pt-5 lg:pt-10 border-t border-gray-300 bg-[#153333]">
       <div className="w-full h-full max-container flex flex-col justify-between px-4 lg:px-8 min-[1490px]:px-0 pb-8">
         <div className="flex flex-col gap-y-5 ">
-          <div className="w-full max-[550px]:flex-col flex justify-between lg:justify-start items-center mt-5 max-[550px]:items-start max-[550px]:gap-y-5">
+          <div className="w-full max-[550px]:flex-col flex justify-between lg:justify-start items-center max-[550px]:items-start max-[550px]:gap-y-5">
             <Image
               src="/home/footer.svg"
               alt="logo"
@@ -55,7 +55,7 @@ const Footer = () => {
                   className={cn(
                     "capitalize hover:font-medium hover:text-primary transition-colors duration-300",
                     {
-                      uppercase: link.label === "faq",
+                      uppercase: link.label === "resource",
                     }
                   )}
                 >
