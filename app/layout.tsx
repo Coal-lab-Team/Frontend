@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StateContextProvider from "@/context/StateContext";
 import Navbar from "@/components/navs/navbar";
+import Footer from "@/components/footer/footer";
 import GotoTop from "@/components/GotoTop";
 import "./globals.css";
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <StateContextProvider>
           <Navbar />
           {children}
+          <Footer />
           <GotoTop />
         </StateContextProvider>
       </body>
