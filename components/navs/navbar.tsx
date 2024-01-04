@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-// import MobileNav from "./MobileNav";
+import MobileNav from "./mobilenav";
 import { useStateCtx } from "@/context/StateContext";
 import useWindowHeight from "@/hooks/useDimension";
 
@@ -29,7 +29,7 @@ const Navbar = () => {
       className={cn(
         " max-[500px]:py-2   px-4 sm:px-8 xl:px-16 2xl:px-24 flex w-full justify-between items-center  transition-colors duration-500",
         scrollHeight > 200
-          ? " fixed backdrop-blur-xl top-0 left-0  z-50 -translate-y-28 opacity-0 animate-slideDown bg-white/90 py-2 border-b border-gray-200 shadow-md"
+          ? " fixed backdrop-blur-xl top-0 left-0  z-50 -translate-y-28 opacity-0 animate-slideDown bg-white-100 py-2 border-b border-gray-200 shadow-md"
           : "sm:py-6 py-4",
         {
           "bg-white/60 ": scrollHeight > 800 && scrollHeight < 4300,
@@ -79,7 +79,7 @@ const Navbar = () => {
         <FaBars />
       </div>
 
-      {/* <MobileNav /> */}
+      <MobileNav />
     </nav>
   );
 };
