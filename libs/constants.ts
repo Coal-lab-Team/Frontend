@@ -19,7 +19,7 @@ export const FOOTER_LINKS: FooterLinkProps = {
     { id: 4, link: "articles?path=articles", label: "articles" },
   ],
   followus: [
-    { id: 1, link: "", label: "faq" },
+    { id: 1, link: "", label: "dribbble" },
     { id: 2, link: "", label: "behance" },
     { id: 3, link: "", label: "instagram" },
   ],
