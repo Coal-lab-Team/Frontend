@@ -4,6 +4,10 @@ import cn from "@/utils/twcx";
 import { FOOTER_LINKS } from "@/libs/constants";
 import Image from "next/image";
 // import { BsTwitterX } from "react-icons/bs";
+import { FaDribbble } from "react-icons/fa";
+import { FaBehance } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 
 const Footer = () => {
@@ -33,6 +37,14 @@ const Footer = () => {
                 just advertising.
               </h2>
             </div>
+            <div className="flex items-end mb-4 ml-4"> {/*Flex container for icons */} 
+              <FaDribbble className="text-white-100 text-2xl mr-4" /> {/* First icon */}
+              <FaBehance className="text-white-100 text-2xl mr-4"/> {/* Second icon */}
+              <FaInstagram className="text-white-100 text-2xl mr-4" /> {/* Third icon */}
+              <FaLinkedin className="text-white-100 text-2xl "/> {/* Fourth icon */}
+            </div> 
+
+            
             <ul className="flex flex-col gap-y-5 max-[550px]:gap-y-3">
               <span>Company</span>
               {FOOTER_LINKS.company.map((link) => (
