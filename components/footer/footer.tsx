@@ -36,13 +36,13 @@ const Footer = () => {
                 At our marketing company, we believe that marketing is more than
                 just advertising.
               </h2>
-            </div>
-            <div className="flex items-end mb-4 ml-4"> {/*Flex container for icons */} 
+            <div className="flex items-end mb-4 mt-2"> {/*Flex container for icons */} 
               <FaDribbble className="text-white-100 text-2xl mr-4" /> {/* First icon */}
               <FaBehance className="text-white-100 text-2xl mr-4"/> {/* Second icon */}
               <FaInstagram className="text-white-100 text-2xl mr-4" /> {/* Third icon */}
               <FaLinkedin className="text-white-100 text-2xl "/> {/* Fourth icon */}
             </div> 
+            </div>
 
             
             <ul className="flex flex-col gap-y-5 max-[550px]:gap-y-3">
