@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 
+
+
 function page() {
   return (
     <>
@@ -11,13 +13,22 @@ function page() {
                 <h2>Welcome Back!</h2>
                 <p>Login to  continue to your account...</p>
             </div>
-            <form>
-                <div className=' flex-col flex'>
-                    <label className=' justify-start'> Email</label>
-                    <input className=' border rounded-md' placeholder='Enter your email address'/>
+            <form className=' items-center justify-center flex flex-col'>
+                <div className=' flex-col flex w-full h-[86px] mt-[32px]'>
+                    <label className=' justify-start  '> Email</label>
+                    <input className=' border rounded-md w-full h-[54px] p-[16]' placeholder='Enter your email address'/>
                 </div>
+                <div className=' flex-col flex w-full h-[86px] mt-[32px]'>
+                    <label className=' justify-start w-full'>Password</label>
+                    <input className=' border rounded-md w-full  h-[54px] p-[16]' placeholder='Enter your Password'/>
+                </div>
+                
+                    <button className='rounded-md bg-[#265D5C] w-[90px] h-[45px]  text-[#f1f1f1f1] mt-[32px] '> Login</button>
 
             </form>
+            <div>
+                <input/>
+            </div>
 
         </div>
 
