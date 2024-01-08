@@ -22,9 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <StateContextProvider>
-          <Navbar />
+          
           {children}
-          <Footer />
+          
           <GotoTop />
         </StateContextProvider>
       </body>
