@@ -16,7 +16,7 @@ function page() {
             </div>
             <form className=' items-center justify-center flex flex-col'>
                 <div className=' flex-col flex w-full h-[86px] mt-[32px]'>
-                    <label className=' justify-start  '> Email</label>
+                    <label className=' justify-start'> Email</label>
                     <input className=' border rounded-md w-full h-[54px] p-[16px]' placeholder='Enter your email address'/>
                 </div>
                 <div className=' flex-col flex w-full h-[86px] mt-[32px]'>
@@ -24,7 +24,7 @@ function page() {
                     <input className=' border rounded-md w-full  h-[54px] p-[16px]' placeholder='Enter your Password'/>
                 </div>
                 
-                    <button className='rounded-md bg-[#265D5C] w-[90px] h-[45px]  text-[#f1f1f1f1] mt-[32px] '> Login</button>
+                    <button className='rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] '> Login</button>
 
             </form>
             <div className='flex flex-row gap-[188px] mt-[16px]'>
@@ -38,7 +38,7 @@ function page() {
             </div>
             <div className=' items-center justify-center flex mt-[32px] font-normal'>
                 <label>Don&apos;t have an account?</label>
-                <Link href={'#'} className=' text-[#265D5C]'>Create account</Link>
+                <Link href={'./signup'} className=' text-[#265D5C]'>Create account</Link>
             </div>
 
 
