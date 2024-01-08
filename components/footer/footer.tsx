@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="flex flex-col gap-y-5 ">
           <div className="w-full max-[550px]:flex-col flex justify-between lg:justify-start items-center max-[550px]:items-start max-[550px]:gap-y-5">
             <Image
-              src="/home/footer.svg"
+              src="/assets/footer.svg"
               alt="logo"
               width={155}
               height={55}

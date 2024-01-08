@@ -43,7 +43,7 @@ const Navbar = () => {
           scrollHeight > 200 ? "w-[120px] " : "w-fit"
         )}
       >
-        <Image src="/home/logo.svg" alt="logo" width={155} height={55} />
+        <Image src="/assets/logo.svg" alt="logo" width={155} height={55} />
       </Link>
 
       <div className="hidden lg:flex items-center gap-x-5 lg:gap-x-7 2xl:gap-x-10 w-full justify-center max-w-[50%] 2xl:max-w-[40%]">
