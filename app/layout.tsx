@@ -4,6 +4,7 @@ import StateContextProvider from "@/context/StateContext";
 import Navbar from "@/components/navs/navbar";
 import Footer from "@/components/footer/footer";
 import GotoTop from "@/components/GotoTop";
+// import Error from "./auth/error/Error";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +25,7 @@ export default function RootLayout({
         <StateContextProvider>
           
           {children}
-          
+
           <GotoTop />
         </StateContextProvider>
       </body>
