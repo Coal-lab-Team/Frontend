@@ -11,7 +11,7 @@ function page() {
         <Image src="/assets/logo.svg" alt='logo' width={180} height={60}/>
         <div className=' flex flex-col w-[475px] h-[666px] mt-6'>
             <div className=' items-center justify-center flex-col flex'>
-                <h2 className=' font-bold text-31'>Create your individual account</h2>
+                <h2 className=' font-bold text-31'>Welcome to Coallab</h2>
                 <p>Sign up to start uploading templates that converts!</p>
             </div>
 
@@ -51,10 +51,10 @@ function page() {
                     </div>
                 </div>
                 <div className=' flex-col flex w-full mt-[40px]'>
-                <div>
-                <input type="checkbox" />
-                <label >Remember me</label>
-                </div>
+                    <div>
+                        <input type="checkbox" className=' mr-2' />
+                        <label>I agree to terms & conditions</label>
+                    </div>
                 </div>
                     
                 <button className='rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[40px] '>Create  Account</button>
