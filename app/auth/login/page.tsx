@@ -8,7 +8,7 @@ import ForgotPassModal from '@/components/forgotPassModal/forgotPassModal';
 
 
 
-function page() {
+function LoginPage() {
     const [showModal, setShowModal] = useState(false);
 
     const openModal = () => {
@@ -64,6 +64,6 @@ function page() {
   )
 }
 
-export default page
+export default LoginPage
 
 

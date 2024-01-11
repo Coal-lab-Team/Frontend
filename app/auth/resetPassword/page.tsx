@@ -41,7 +41,7 @@ import React, { useState } from 'react'
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
 
 
-function page() {
+function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -106,4 +106,4 @@ function page() {
   )
 }
 
-export default page
+export default ResetPasswordPage
