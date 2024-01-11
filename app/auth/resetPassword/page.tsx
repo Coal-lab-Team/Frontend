@@ -73,9 +73,9 @@ function page() {
                     />
                     <div className="p-[14px]" onClick={togglePasswordVisibility}>
                       {showPassword ? (
-                        <  IoEyeOutline className="text-gray-400 cursor-pointer" />
+                        <  IoEyeOffOutline  className="text-gray-400 cursor-pointer" />
                       ) : (
-                        <  IoEyeOffOutline className="text-gray-400 cursor-pointer" />
+                        <  IoEyeOutline  className="text-gray-400 cursor-pointer" />
                       )}
                     </div>
                   </div>
@@ -90,9 +90,9 @@ function page() {
                   />
                   <div className="p-[14px]" onClick={togglePasswordVisibility}>
                     {showPassword ? (
-                    <  IoEyeOutline className="text-gray-400 cursor-pointer" />
+                    < IoEyeOffOutline className="text-gray-400 cursor-pointer" />
                     ) : (
-                    <  IoEyeOffOutline className="text-gray-400 cursor-pointer" />
+                    < IoEyeOutline className="text-gray-400 cursor-pointer" />
                      )}
                   </div>
                 </div>
