@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import ForgotPassModal from '../../../components/forgotPassModal/forgotPassModal';
+import ForgotPassModal from '../../../components/ForgotPassModal/forgotPassModal';
 
 const MainComponent: React.FC = () => {
  
