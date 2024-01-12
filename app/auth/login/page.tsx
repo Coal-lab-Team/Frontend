@@ -26,7 +26,7 @@ function LoginPage() {
         <div className=' flex flex-col w-[475px] h-[468px] mt-6'>
             <div className=' items-center justify-center flex-col flex'>
                 <h2 className=' font-bold text-2xl'>Welcome Back!</h2>
-                <p>Login to  continue to your account...</p>
+                <p className=' text-[14px]'>Login to  continue to your account...</p>
             </div>
             <form className=' items-center justify-center flex flex-col'>
                 <div className=' flex-col flex w-full h-[86px] mt-[32px]'>
@@ -41,18 +41,18 @@ function LoginPage() {
                     <button className='rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] '> Login</button>
 
             </form>
-            <div className='flex flex-row gap-[188px] mt-[16px]'>
+            <div className='flex flex-row  space-x-[188px] mt-[16px] text-[16px]'>
                 <div>
                 <input type="checkbox"/>
                 <label>Remember me</label>
                 </div>
                 <div>
                 {/* <Link href={'./forgotPassword'} className='text-[#265D5C]'>Forgot password?</Link> */}
-                <button onClick={openModal}   className='text-[#265D5C]'>Forgot Password?</button>
+                <button onClick={openModal} className='text-[#265D5C]'>Forgot Password?</button>
                 {showModal && <ForgotPassModal onClose={closeModal} />}
                 </div>
             </div>
-            <div className=' items-center justify-center flex mt-[32px] font-normal'>
+            <div className=' items-center justify-center flex mt-[32px] font-normal text-[14px]'>
                 <label>Don&apos;t have an account?</label>
                 <Link href={'./signup'} className=' text-[#265D5C]'>Create account</Link>
             </div>
