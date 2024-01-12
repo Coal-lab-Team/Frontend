@@ -4,7 +4,7 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { GoKey } from "react-icons/go";
 import Link from 'next/link';
 
-function page() {
+function SignUpPage() {
   return (
     <>
     <div className='flex flex-col gap-y-2  items-center justify-center min-h-screen'>
@@ -72,4 +72,4 @@ function page() {
   )
 }
 
-export default page
+export default SignUpPage
