@@ -11,7 +11,7 @@ function page() {
         <Image src="/assets/logo.svg" alt='logo' width={180} height={60}/>
         <div className=' flex flex-col w-[475px] h-[666px] mt-6'>
             <div className=' items-center justify-center flex-col flex'>
-                <h2 className=' font-bold text-31'>Welcome to Coallab</h2>
+                <h2 className=' font-bold text-2xl'>Welcome to Coallab</h2>
                 <p>Sign up to start uploading templates that converts!</p>
             </div>
 

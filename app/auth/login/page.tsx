@@ -1,17 +1,32 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+import ForgotPasswordModal from '@/components/ForgotPassModal/forgotPassModal'
+import ForgotPassModal from '@/components/ForgotPassModal/forgotPassModal';
 
 
 
-function page() {
+function LoginPage() {
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+      setShowModal(true);
+    };
+  
+    const closeModal = () => {
+      setShowModal(false);
+    };
+  
   return (
     <>
     <div className='flex flex-col gap-y-2  items-center justify-center min-h-screen'>
         <Image src="/assets/logo.svg" alt='logo' width={180} height={60}/>
+
         <div className=' flex flex-col w-[475px] h-[468px] mt-6'>
             <div className=' items-center justify-center flex-col flex'>
-                <h2 className=' font-bold text-31'>Welcome Back!</h2>
+                <h2 className=' font-bold text-2xl'>Welcome Back!</h2>
                 <p>Login to  continue to your account...</p>
             </div>
             <form className=' items-center justify-center flex flex-col'>
@@ -33,7 +48,9 @@ function page() {
                 <label>Remember me</label>
                 </div>
                 <div>
-                <Link href={'#'} className='text-[#265D5C]'>Forgot password?</Link>
+                {/* <Link href={'./forgotPassword'} className='text-[#265D5C]'>Forgot password?</Link> */}
+                <button onClick={openModal}   className='text-[#265D5C]'>Forgot Password?</button>
+                {showModal && <ForgotPassModal onClose={closeModal} />}
                 </div>
             </div>
             <div className=' items-center justify-center flex mt-[32px] font-normal'>
@@ -41,13 +58,12 @@ function page() {
                 <Link href={'./signup'} className=' text-[#265D5C]'>Create account</Link>
             </div>
 
-
-
         </div>
-
     </div>
     </>
   )
 }
 
-export default page
+export default LoginPage
+
+

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StateContextProvider from "@/context/StateContext";
-import Navbar from "@/components/navs/navbar";
-import Footer from "@/components/footer/footer";
+import Navbar from "@/components/Navs/navbar";
+import Footer from "@/components/Footer/footer";
 import GotoTop from "@/components/GotoTop";
 // import Error from "./auth/error/Error";
 import "./globals.css";

@@ -1,9 +1,16 @@
-import React from 'react'
 
-function page() {
+"use client";
+
+import React, { useState } from 'react';
+import ForgotPassModal from '../../../components/ForgotPassModal/forgotPassModal';
+
+const MainComponent: React.FC = () => {
+ 
   return (
-    <div>Forget Password</div>
-  )
-}
+    <div className=' items-center justify-center flex flex-col '>
+      
+    </div>
+  );
+};
 
-export default page
+export default MainComponent;
