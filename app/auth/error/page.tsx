@@ -1,9 +1,10 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
-import Navbar from '@/components/navs/navbar';
+import Navbar from '@/components/Navs/navbar';
 
 
-function page() {
+function Page() {
     const title = "The page you were looking for could not be found.";
     const subTitle = "It seems this page is missing. Please check the URL or go home."
     return(
@@ -25,4 +26,4 @@ function page() {
     )
 } 
 
-export default page;
+export default Page;
