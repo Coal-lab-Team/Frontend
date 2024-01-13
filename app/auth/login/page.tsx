@@ -23,7 +23,7 @@ function LoginPage() {
     <div className='flex flex-col gap-y-2  items-center justify-center min-h-screen'>
         <Image src="/assets/logo.svg" alt='logo' width={180} height={60}/>
 
-        <div className=' flex flex-col w-[475px] h-[468px] mt-6'>
+        <div className=' flex flex-col md:w-[475px] w-[270px] md:h-[468px]  mt-6'>
             <div className=' items-center justify-center flex-col flex'>
                 <h2 className=' font-bold text-2xl'>Welcome Back!</h2>
                 <p className=' text-[14px]'>Login to  continue to your account...</p>
@@ -41,8 +41,8 @@ function LoginPage() {
                     <button className='rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] '> Login</button>
 
             </form>
-            <div className='flex flex-row  space-x-[188px] mt-[16px] text-[16px]'>
-                <div>
+            <div className='flex flex-row justify-between mt-[16px] text-[16px]'>
+                <div className=' flex items-center justify-center '>
                 <input type="checkbox"/>
                 <label>Remember me</label>
                 </div>
