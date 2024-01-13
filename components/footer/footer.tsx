@@ -75,7 +75,7 @@ const Footer = () => {
               ))}
             </ul>
             <ul className="flex flex-col gap-y-5 max-[550px]:gap-y-3">
-              <span>follow us</span>
+              <span>Follow us</span>
               {FOOTER_LINKS.followus.map((link) => (
                 <Link
                   href={link.link}
@@ -83,7 +83,7 @@ const Footer = () => {
                   className={cn(
                     "capitalize hover:font-medium hover:text-primary transition-colors duration-300",
                     {
-                      uppercase: link.label === "faq",
+                      uppercase: link.label === "follow us",
                     }
                   )}
                 >
