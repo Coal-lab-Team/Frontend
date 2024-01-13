@@ -3,7 +3,6 @@
 import cn from "@/utils/twcx";
 import { FOOTER_LINKS } from "@/libs/constants";
 import Image from "next/image";
-// import { BsTwitterX } from "react-icons/bs";
 import { FaDribbble } from "react-icons/fa";
 import { FaBehance } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -60,7 +59,7 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-y-5 max-[550px]:gap-y-3">
               <span>Resources</span>
-              {FOOTER_LINKS.resourse.map((link) => (
+              {FOOTER_LINKS.resource.map((link) => (
                 <Link
                   href={link.link}
                   key={link.id}

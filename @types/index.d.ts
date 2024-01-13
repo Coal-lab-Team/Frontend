@@ -11,6 +11,6 @@ export interface StateContextProps {
 
 export type FooterLinkProps = {
   company: NavbarLinkProps[];
-  resourse: NavbarLinkProps[];
+  resource: NavbarLinkProps[];
   followus: NavbarLinkProps[];
 };

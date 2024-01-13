@@ -12,7 +12,7 @@ export const FOOTER_LINKS: FooterLinkProps = {
     { id: 2, link: "contacts?path=contacts", label: "contact us" },
     { id: 3, link: "career?path=career", label: "carreer" },
   ],
-  resourse: [
+  resource: [
     { id: 1, link: "blog?path=blog", label: "blog" },
     { id: 2, link: "brand?path=brand", label: "brand guide" },
     { id: 3, link: "ebook?path=ebook", label: "ebook" },
