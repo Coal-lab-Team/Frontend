@@ -67,9 +67,22 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <div className="hidden lg:flex gap-x-3 xl:gap-x-5 [&>button]:border-[#FED3A6] [&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button]:rounded-md [&>button:last-child]:bg-[#265D5C]  [&>button:last-child]:text-white-100 [&>button]:font-medium [&>button]:text-[#252525]">
+      {/* <div className="hidden lg:flex gap-x-3 xl:gap-x-5 [&>button]:border-[#FED3A6] [&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button]:rounded-md [&>button:last-child]:bg-[#265D5C]  [&>button:last-child]:text-white-100 [&>button]:font-medium [&>button]:text-[#252525]">
         <button type="button">Login</button>
         <button type="button">Sign up</button>
+      </div> */}
+      <div className="hidden lg:flex gap-x-3 xl:gap-x-5">
+        <Link href="/auth/login">
+          <button type="button" className="border-[#FED3A6] border px-4 py-2 rounded-md font-medium text-[#252525]">
+            Login
+          </button>
+        </Link>
+  
+        <Link href="/auth/signup">
+          <button type="button" className=" px-4 py-2 rounded-md font-medium text-white-100 bg-[#265D5C] ">
+            Sign up
+          </button>
+        </Link>
       </div>
       <div
         tabIndex={0}
