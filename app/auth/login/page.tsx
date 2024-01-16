@@ -17,6 +17,7 @@ function LoginPage() {
     const closeModal = () => {
       setShowModal(false);
     };
+    
   
   return (
     <>
