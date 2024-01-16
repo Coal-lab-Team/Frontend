@@ -1,6 +1,6 @@
 import React from "react";
-import Modal from "../Ui/modal";
 import Image from "next/image";
+import Modal from "../Ui/modal";
 import Button from "../Ui/Button";
 
 function ChangePassModal({
