@@ -39,6 +39,7 @@
 "use client";
 import React, { useState } from 'react'
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
+import Image from 'next/image';
 
 
 function ResetPasswordPage() {
@@ -49,61 +50,64 @@ function ResetPasswordPage() {
   };
   return (
     <>
-    <div className=' flex justify-center items-center '>
-      <div className=' items-center justify-center rounded-md bg-[#fff]  w-[611px] h-[553px] p-[80px]'>
+      <div className=" flex justify-center items-center flex-col gap-y-2 min-h-screen ">
+        <Image src="/assets/logo.svg" alt="logo" width={180} height={60} />
+        <div className=" items-center justify-center rounded-md bg-[#fff]  md:w-[611px] md:h-[553px] md:p-[80px] p-[30px]">
           <form>
-
-            <div className=' justify-start w-full flex-col flex'>
-                {/* <div  className=" flex justify-end ">
+            <div className=" justify-start items-start w-full flex-col flex">
+              {/* <div  className=" flex justify-end ">
                     <button type="button" onClick={onClose}>
-
                     <IoIosCloseCircleOutline className="w-[32px] h-[32px] " />
                     </button>
                 </div> */}
-                <h2 className=' font-bold text-2xl'>Reset password</h2>
-                <p className='mt-[8px]'>Enter your new password</p>
+
+              <h2 className=" font-bold text-2xl">Reset password</h2>
+              <p className=" text-[16px] mt-[8px]">Enter your new password</p>
             </div>
-              <div className='flex flex-col w-full h-[86px] mt-[40px]'>
-                <label className='justify-start w-full'> New Password</label>
-                  <div className="flex items-center w-full border rounded-md mt-[8px]">
-                    <input
-                      type={showPassword ? 'text' : 'password'}
-                      className="w-full p-[16px] outline-none bg-transparent"
-                      placeholder="Password"
-                    />
-                    <div className="p-[14px]" onClick={togglePasswordVisibility}>
-                      {showPassword ? (
-                        <  IoEyeOffOutline  className="text-gray-400 cursor-pointer" />
-                      ) : (
-                        <  IoEyeOutline  className="text-gray-400 cursor-pointer" />
-                      )}
-                    </div>
-                  </div>
-              </div>
-              <div className='flex flex-col w-full h-[86px] mt-[40px]'>
-                <label className='justify-start w-full'>Confirm New Password</label>
-                <div className="flex items-center w-full border rounded-md mt-[8px]">
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    className="w-full p-[16px] outline-none bg-transparent"
-                    placeholder="Password"
-                  />
-                  <div className="p-[14px]" onClick={togglePasswordVisibility}>
-                    {showPassword ? (
-                    < IoEyeOffOutline className="text-gray-400 cursor-pointer" />
-                    ) : (
-                    < IoEyeOutline className="text-gray-400 cursor-pointer" />
-                     )}
-                  </div>
+            <div className="flex flex-col w-full h-[86px] mt-[40px]">
+              <label className="justify-start w-full"> New Password</label>
+              <div className="flex items-center w-full border rounded-md mt-[8px]">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="w-full p-[16px] outline-none bg-transparent"
+                  placeholder="Password"
+                />
+                <div className="p-[14px]" onClick={togglePasswordVisibility}>
+                  {showPassword ? (
+                    <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
+                  ) : (
+                    <IoEyeOutline className="text-gray-400 cursor-pointer" />
+                  )}
                 </div>
               </div>
-            <button className='rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] '>Send recovery instructions</button>
+            </div>
+            <div className="flex flex-col w-full h-[86px] mt-[40px]">
+              <label className="justify-start w-full">
+                Confirm New Password
+              </label>
+              <div className="flex items-center w-full border rounded-md mt-[8px]">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="w-full p-[16px] outline-none bg-transparent"
+                  placeholder="Password"
+                />
+                <div className="p-[14px]" onClick={togglePasswordVisibility}>
+                  {showPassword ? (
+                    <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
+                  ) : (
+                    <IoEyeOutline className="text-gray-400 cursor-pointer" />
+                  )}
+                </div>
+              </div>
+            </div>
+            <button className="rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] ">
+              Send recovery instructions
+            </button>
           </form>
+        </div>
       </div>
-    </div>
-    
     </>
-  )
+  );
 }
 
 export default ResetPasswordPage
