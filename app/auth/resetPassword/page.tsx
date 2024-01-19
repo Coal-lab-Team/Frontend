@@ -74,14 +74,14 @@ function ResetPasswordPage() {
                 />
                 <div className="p-[14px]" onClick={togglePasswordVisibility}>
                   {showPassword ? (
-                    <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
-                  ) : (
                     <IoEyeOutline className="text-gray-400 cursor-pointer" />
+                  ) : (
+                    <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
                   )}
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-full h-[86px] mt-[40px]">
+            <div className="flex flex-col w-full h-[86px] mt-[24px]">
               <label className="justify-start w-full">
                 Confirm New Password
               </label>
@@ -93,9 +93,9 @@ function ResetPasswordPage() {
                 />
                 <div className="p-[14px]" onClick={togglePasswordVisibility}>
                   {showPassword ? (
-                    <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
-                  ) : (
                     <IoEyeOutline className="text-gray-400 cursor-pointer" />
+                  ) : (
+                    <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
                   )}
                 </div>
               </div>
