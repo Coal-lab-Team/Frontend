@@ -1,31 +1,28 @@
 "use client";
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import ForgotPassModal from '@/components/ForgotPassModal/forgotPassModal';
-
-
+import ForgotPassModal from "@/components/ForgotPassModal/forgotPassModal";
 
 function LoginPage() {
-    const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-    const openModal = () => {
-      setShowModal(true);
-    };
-  
-    const closeModal = () => {
-      setShowModal(false);
-    };
+  const openModal = () => {
+    setShowModal(true);
+  };
 
-    const [showPassword, setShowPassword] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
-    const togglePasswordVisibility = () => {
-      setShowPassword((prevShowPassword: any) => !prevShowPassword);
-    };
-    
-  
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword: any) => !prevShowPassword);
+  };
+
   return (
     <>
       <div className="flex flex-col gap-y-2  items-center justify-center min-h-screen">
@@ -40,40 +37,27 @@ function LoginPage() {
             <div className=" flex-col flex w-full h-[86px] mt-[32px]">
               <label className=" justify-start"> Email</label>
               <input
-                className=" border rounded-md w-full h-[54px] p-[16px]"
+                className=" border rounded-md w-full h-[54px] p-[16px] mt-[8px] outline-none bg-transparent"
                 placeholder="Enter your email address"
               />
             </div>
-            {/* <div className=" flex-col flex w-full h-[86px] mt-[32px]">
-              <label className=" justify-start w-full">Password</label>
-              <input
-                className=" border rounded-md w-full  h-[54px] p-[16px]"
-                placeholder="Enter your Password"
-              />
-              <div className="p-[14px]" onClick={togglePasswordVisibility}>
-                {showPassword ? (
-                  <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
-                ) : (
-                  <IoEyeOutline className="text-gray-400 cursor-pointer" />
-                )}
-              </div>
-            </div> */}
-              <label className=" justify-start w-full">Password</label>
-            <div className="flex items-center w-full border rounded-md mt-[32px]">
-              <input
-                type={showPassword ? "text" : "password"}
-                className="w-full p-[16px] outline-none bg-transparent"
-                placeholder="Password"
-              />
-              <div className="p-[14px]" onClick={togglePasswordVisibility}>
-                {showPassword ? (
-                  <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
-                ) : (
-                  <IoEyeOutline className="text-gray-400 cursor-pointer" />
-                )}
+            <div className="flex flex-col w-full h-[86px] mt-[16px]">
+              <label className="justify-start w-full">Password</label>
+              <div className="flex items-center w-full border rounded-md mt-[8px]">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="w-full h-[54px] p-[16px] outline-none bg-transparent"
+                  placeholder="Password"
+                />
+                <div className="p-[14px]" onClick={togglePasswordVisibility}>
+                  {showPassword ? (
+                    <IoEyeOutline className="text-gray-400 cursor-pointer" />
+                  ) : (
+                    <IoEyeOffOutline className="text-gray-400 cursor-pointer" />
+                  )}
+                </div>
               </div>
             </div>
-
             <button className="rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] ">
               {" "}
               Login
@@ -104,6 +88,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage
-
-
+export default LoginPage;
