@@ -4,18 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import ForgotPassModal from "@/components/ForgotPassModal/forgotPassModal";
+// import ForgotPassModal from "@/components/ForgotPassModal/forgotPassModal";
+import ForgotPasswordModal from "@/components/ForgotPassModal/forgotPassModal";
+import useDisclosure from "@/app/hook/useDisclosure";
 
 function LoginPage() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  const openModal = () => {
-    setShowModal(true);
-  };
+  // const openModal = () => {
+  //   setShowModal(true);
+  // };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
+  // const closeModal = () => {
+  //   setShowModal(false);
+  // };
+   const [showModal, setShowModal] = useState(false);
+   const { isOpen, onClose, onOpen } = useDisclosure();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -59,7 +63,7 @@ function LoginPage() {
               </div>
             </div>
             <button className="rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] ">
-              {" "}
+              {""}
               Login
             </button>
           </form>
@@ -70,10 +74,12 @@ function LoginPage() {
             </div>
             <div>
               {/* <Link href={'./forgotPassword'} className='text-[#265D5C]'>Forgot password?</Link> */}
-              <button onClick={openModal} className="text-[#265D5C]">
+              {/* <button onClick={openModal} className="text-[#265D5C]"> */}
+              <button onClick={onOpen} className="text-[#265D5C]">
                 Forgot Password?
               </button>
-              {showModal && <ForgotPassModal onClose={closeModal} />}
+              {/* {showModal && <ForgotPassModal onClose={closeModal} />} */}
+              <ForgotPasswordModal isOpen={isOpen} onClose={onClose} />
             </div>
           </div>
           <div className=" items-center justify-center flex mt-[32px] font-normal text-[14px]">
