@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Modal from "../Ui/modal";
 import Button from "../Ui/Button";
-// import Link from "next/link";
+import Link from "next/link";
 
 function ChangePassModal({
   isOpen,
@@ -25,11 +25,11 @@ function ChangePassModal({
         <p className=" md:p-[12px] md:font-semibold text-center ">
           Your Password has been Successfully changed
         </p>
-        {/* <Link href={"./auth/login"}> */}
+        <Link href={"./auth/login"}>
           <Button className=" bg-[#265D5C] rounded-md text-white-100 md:w-full w-auto md:p-[24px] mt-[40px] md:font-semibold font-normal">
             Log in to your Account
           </Button>
-        {/* </Link> */}
+        </Link>
       </div>
     </Modal>
   );
