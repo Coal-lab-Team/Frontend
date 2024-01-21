@@ -4,20 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-// import ForgotPassModal from "@/components/ForgotPassModal/forgotPassModal";
 import ForgotPasswordModal from "@/components/ForgotPassModal/forgotPassModal";
 import useDisclosure from "@/app/hook/useDisclosure";
 
-function LoginPage() {
-  // const [showModal, setShowModal] = useState(false);
+function LoginPage () {
+  
+  const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+     const inputValue = event.target.value;
+     //Email validation using a regular expression
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // const openModal = () => {
-  //   setShowModal(true);
-  // };
+     if (emailRegex.test(inputValue) || inputValue === "") {
+       setEmail(inputValue);
+     }
+    };
 
-  // const closeModal = () => {
-  //   setShowModal(false);
-  // };
+
+     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+       event.preventDefault();
+
+       //login logic here, using the validated email and password
+       // 'email' and 'password' states to proceed with authentication.
+     };
+
+
    const [showModal, setShowModal] = useState(false);
    const { isOpen, onClose, onOpen } = useDisclosure();
 
@@ -26,6 +38,7 @@ function LoginPage() {
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword: any) => !prevShowPassword);
   };
+
 
   return (
     <>
@@ -42,6 +55,10 @@ function LoginPage() {
               <label className=" justify-start"> Email</label>
               <input
                 className=" border rounded-md w-full h-[54px] p-[16px] mt-[8px] outline-none bg-transparent"
+                required
+                type="email"
+                //  value={email}
+                onChange={handleEmailChange}
                 placeholder="Enter your email address"
               />
             </div>
