@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import MobileNav from "./mobilenav";
+import MobileNav from "../MobileNav";
 import { useStateCtx } from "@/context/StateContext";
 import useWindowHeight from "@/hooks/useDimension";
 
@@ -73,13 +73,19 @@ const Navbar = () => {
       </div> */}
       <div className="hidden lg:flex gap-x-3 xl:gap-x-5">
         <Link href="/auth/login">
-          <button type="button" className="border-[#FED3A6] border px-4 py-2 rounded-md font-medium text-[#252525]">
+          <button
+            type="button"
+            className="border-[#FED3A6] border px-4 py-2 rounded-md font-medium text-[#252525]"
+          >
             Login
           </button>
         </Link>
-  
+
         <Link href="/auth/signup">
-          <button type="button" className=" px-4 py-2 rounded-md font-medium text-white-100 bg-[#265D5C] ">
+          <button
+            type="button"
+            className=" px-4 py-2 rounded-md font-medium text-white-100 bg-[#265D5C] "
+          >
             Sign up
           </button>
         </Link>
