@@ -4,11 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import ForgotPasswordModal from "@/components/ForgotPassModal/forgotPassModal";
+import ForgotPasswordModal from "../../../components/ForgotPassModal/forgotPassModal";
 import useDisclosure from "@/app/hook/useDisclosure";
 
-function LoginPage () {
-  
+function LoginPage() {
   // const [email, setEmail] = useState("");
   //   const [password, setPassword] = useState("");
   //   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +20,6 @@ function LoginPage () {
   //    }
   //   };
 
-
   //    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   //      event.preventDefault();
 
@@ -29,16 +27,14 @@ function LoginPage () {
   //      // 'email' and 'password' states to proceed with authentication.
   //    };
 
-
-   const [showModal, setShowModal] = useState(false);
-   const { isOpen, onClose, onOpen } = useDisclosure();
+  const [showModal, setShowModal] = useState(false);
+  const { isOpen, onClose, onOpen } = useDisclosure();
 
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword: any) => !prevShowPassword);
   };
-
 
   return (
     <>
