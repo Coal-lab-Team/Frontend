@@ -41,6 +41,8 @@ function SignUpPage() {
                   <FaRegEnvelope className="text-gray-400 " />
                   <input
                     className="w-full h-full p-[16px] outline-none bg-transparent"
+                    required
+                    type="email"
                     placeholder="olivia@untitledui.com"
                   />
                 </div>
