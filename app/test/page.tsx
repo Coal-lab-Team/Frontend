@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import ChangePasswordModal from "@/components/ChangePassModal/changePassModal";
+import ChangePasswordModal from "@/components/ChangePassModal";
 import useDisclosure from "../hook/useDisclosure";
 
 function ChangePassPage() {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import ForgotPasswordModal from "../../../components/ForgotPassModal/forgotPassModal";
+import ForgotPasswordModal from "../../../components/ForgotPassModal";
 import useDisclosure from "@/app/hook/useDisclosure";
 
 function LoginPage() {
