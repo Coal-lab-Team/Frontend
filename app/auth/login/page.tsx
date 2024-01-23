@@ -9,25 +9,25 @@ import useDisclosure from "@/app/hook/useDisclosure";
 
 function LoginPage () {
   
-  const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-     const inputValue = event.target.value;
-     //Email validation using a regular expression
-     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // const [email, setEmail] = useState("");
+  //   const [password, setPassword] = useState("");
+  //   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //    const inputValue = event.target.value;
+  //    //Email validation using a regular expression
+  //    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-     if (emailRegex.test(inputValue) || inputValue === "") {
-       setEmail(inputValue);
-     }
-    };
+  //    if (emailRegex.test(inputValue) || inputValue === "") {
+  //      setEmail(inputValue);
+  //    }
+  //   };
 
 
-     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-       event.preventDefault();
+  //    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //      event.preventDefault();
 
-       //login logic here, using the validated email and password
-       // 'email' and 'password' states to proceed with authentication.
-     };
+  //      //login logic here, using the validated email and password
+  //      // 'email' and 'password' states to proceed with authentication.
+  //    };
 
 
    const [showModal, setShowModal] = useState(false);
@@ -58,7 +58,7 @@ function LoginPage () {
                 required
                 type="email"
                 //  value={email}
-                onChange={handleEmailChange}
+                // onChange={handleEmailChange}
                 placeholder="Enter your email address"
               />
             </div>
