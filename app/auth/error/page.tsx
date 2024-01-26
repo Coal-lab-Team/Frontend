@@ -11,7 +11,7 @@ function Page() {
   return (
     <>
       <Navbar />
-      <div className="mt-[60px] ">
+      <div className="mt-[60px]">
         <div className=" flex flex-col gap-y-2 px-6 items-center justify-center">
           <Image
             src="/assets/G404.png"
