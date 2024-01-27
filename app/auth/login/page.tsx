@@ -7,25 +7,37 @@ import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import ForgotPasswordModal from "../../../components/ForgotPassModal";
 import useDisclosure from "@/app/hook/useDisclosure";
 
+import { login as loginApi } from "../../http/auth";
+
 function LoginPage() {
-  // const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
-  //   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //    const inputValue = event.target.value;
-  //    //Email validation using a regular expression
-  //    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
 
-  //    if (emailRegex.test(inputValue) || inputValue === "") {
-  //      setEmail(inputValue);
-  //    }
-  //   };
+    setEmail(inputValue);
+  };
 
-  //    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //      event.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    //Email validation using a regular expression
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  //      //login logic here, using the validated email and password
-  //      // 'email' and 'password' states to proceed with authentication.
-  //    };
+    if (password === "") {
+      alert("Password is missing");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      alert("Email is not valid");
+      return;
+    }
+
+    loginApi({ email, password });
+
+    //login logic here, using the validated email and password
+    // 'email' and 'password' states to proceed with authentication.
+  };
 
   const [showModal, setShowModal] = useState(false);
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -46,15 +58,18 @@ function LoginPage() {
             <h2 className=" font-bold text-2xl">Welcome Back!</h2>
             <p className=" text-[14px]">Login to continue to your account...</p>
           </div>
-          <form className=" items-center justify-center flex flex-col">
+          <form
+            className=" items-center justify-center flex flex-col"
+            onSubmit={handleSubmit}
+          >
             <div className=" flex-col flex w-full h-[86px] mt-[32px]">
               <label className=" justify-start"> Email</label>
               <input
                 className=" border rounded-md w-full h-[54px] p-[16px] mt-[8px] outline-none bg-transparent"
                 required
                 type="email"
-                //  value={email}
-                // onChange={handleEmailChange}
+                value={email}
+                onChange={handleEmailChange}
                 placeholder="Enter your email address"
               />
             </div>
@@ -65,6 +80,8 @@ function LoginPage() {
                   type={showPassword ? "text" : "password"}
                   className="w-full h-[54px] p-[16px] outline-none bg-transparent"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                 />
                 <div className="p-[14px]" onClick={togglePasswordVisibility}>
                   {showPassword ? (
