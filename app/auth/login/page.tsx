@@ -39,7 +39,7 @@ function LoginPage() {
     // 'email' and 'password' states to proceed with authentication.
   };
 
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   const [showPassword, setShowPassword] = useState(false);

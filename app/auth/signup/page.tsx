@@ -1,11 +1,53 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { FaRegEnvelope } from "react-icons/fa";
 import { GoKey } from "react-icons/go";
 import Link from "next/link";
+import { signup as signupApi } from "../../http/auth";
 
 function SignUpPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName]= useState("");
+  const [lastName,setLastName]= useState("");
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+
+    setEmail(inputValue);
+  };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    //Email validation using a regular expression
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (firstName=== "") {
+      alert ("FirstName is missing");
+      return;
+    }
+
+    if (lastName=== "") {
+      alert("LastName is missing");
+      return;
+      
+    }
+      
+
+    if (password === "") {
+      alert("Password is missing");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      alert("Email is not valid");
+      return;
+    }
+
+    signupApi({ firstName, lastName,email, password });
+
+    //signUp logic here, using the validated email and password
+    // 'email' and 'password' states to proceed with authentication.
+  };
   return (
     <>
       <div className="flex flex-col gap-y-2  items-center justify-center min-h-screen">
@@ -18,12 +60,16 @@ function SignUpPage() {
             </p>
           </div>
 
-          <form className=" items-center justify-center flex flex-col">
+          <form
+            className=" items-center justify-center flex flex-col"
+            onSubmit={handleSubmit}
+          >
             <div className=" flex-col flex w-full h-[86px] mt-[40px]">
               <label className=" justify-start">First Name</label>
               <input
                 className=" border rounded-md w-full h-[54px] p-[14px]"
                 placeholder="First Name"
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
             <div className=" flex-col flex w-full h-[86px] mt-[20px]">
@@ -31,6 +77,7 @@ function SignUpPage() {
               <input
                 className=" border rounded-md w-full  h-[54px] p-[14px]"
                 placeholder="Last Name"
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
 
@@ -44,6 +91,8 @@ function SignUpPage() {
                     required
                     type="email"
                     placeholder="olivia@untitledui.com"
+                    onChange={handleEmailChange}
+                    value={email}
                   />
                 </div>
               </div>
@@ -57,6 +106,8 @@ function SignUpPage() {
                   <input
                     className="w-full h-full p-[16px] outline-none bg-transparent"
                     placeholder="olivia@untitledui.com"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                   />
                 </div>
               </div>
