@@ -46,7 +46,7 @@ function SignUpPage() {
     signupApi({ firstName, lastName,email, password });
 
     //signUp logic here, using the validated email and password
-    // 'email' and 'password' states to proceed with authentication.
+    //'firstName', 'lastName', 'email' and 'password' states to proceed with authentication.
   };
   return (
     <>

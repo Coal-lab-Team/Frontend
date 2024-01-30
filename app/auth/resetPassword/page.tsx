@@ -55,12 +55,6 @@ function ResetPasswordPage() {
         <div className=" items-center justify-center rounded-md bg-[#fff]  md:w-[611px] md:h-[553px] md:p-[80px] p-[30px]">
           <form>
             <div className=" justify-start items-start w-full flex-col flex">
-              {/* <div  className=" flex justify-end ">
-                    <button type="button" onClick={onClose}>
-                    <IoIosCloseCircleOutline className="w-[32px] h-[32px] " />
-                    </button>
-                </div> */}
-
               <h2 className=" font-bold text-2xl">Reset password</h2>
               <p className=" text-[16px] mt-[8px]">Enter your new password</p>
             </div>
