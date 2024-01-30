@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import ChangePasswordModal from "@/components/ChangePassModal";
 import useDisclosure from "../hook/useDisclosure";
 
 function ChangePassPage() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (

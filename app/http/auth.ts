@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://coallab.onrender.com/api/v1";
 
 const api = axios.create({
-  baseURL: BASE_URL
+  baseURL: BASE_URL,
 });
 
 export const login = async ({
@@ -17,8 +17,8 @@ export const login = async ({
     const res = await api.post("/login", { email, password });
 
     return res.data;
-  } catch (e:any) {
-     throw e?.response?.data || { message: e.message };
+  } catch (e: any) {
+    throw e?.response?.data || { message: e.message };
   }
 };
 
@@ -34,10 +34,28 @@ export const signup = async ({
   password: string;
 }) => {
   try {
-    const res = await api.post("/register", {firstName, lastName ,email, password });
+    const res = await api.post("/register", {
+      firstName,
+      lastName,
+      email,
+      password,
+    });
 
     return res.data;
   } catch (e: any) {
+    throw e?.response?.data || { message: e.message };
+  }
+};
+
+
+
+export const forgetPassword = async ({ email }: { email: string }) => {
+  try {
+    const res = await api.post("/reset-password", { email });
+    console.log("Password reset email sent successfully");
+    return res?.data;
+  } catch (e: any) {
+    console.error("Error sending password reset email:", e);
     throw e?.response?.data || { message: e.message };
   }
 };
