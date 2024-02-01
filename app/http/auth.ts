@@ -47,8 +47,6 @@ export const signup = async ({
   }
 };
 
-
-
 export const forgetPassword = async ({ email }: { email: string }) => {
   try {
     const res = await api.post("/reset-password", { email });
@@ -56,6 +54,21 @@ export const forgetPassword = async ({ email }: { email: string }) => {
     return res?.data;
   } catch (e: any) {
     console.error("Error sending password reset email:", e);
+    throw e?.response?.data || { message: e.message };
+  }
+};
+
+export const resetPassword = async ({
+  UserId,
+  password,
+}: {
+  UserId: string;
+  password: string;
+}) => {
+  try {
+    const response = await api.patch("/reset-password",{UserId,password});
+    return response?.data;
+  } catch (e: any) {
     throw e?.response?.data || { message: e.message };
   }
 };
