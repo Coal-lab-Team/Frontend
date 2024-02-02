@@ -37,20 +37,37 @@
 // Block of Codes Above was for the modal component 
 
 "use client";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
 import Image from 'next/image';
 
 
 function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [passwordChanged, setPasswordChanged] = useState(false); // state to manage the success of passsword reset
+  const [password, setPassword] = useState("");
+
+  const [isMicrosoftEdge, setIsMicrosoftEdge] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword: any) => !prevShowPassword);
   };
+
+  useEffect(() => {
+    // Check if the user is using Microsoft Edge
+    if (
+      window.navigator.userAgent.includes("Edg") ||
+      window.navigator.userAgent.includes("Edge")
+    ) {
+      setIsMicrosoftEdge(true);
+    }
+  }, []);
+  
+
+
   return (
     <>
-      <div className=" flex justify-center items-center flex-col gap-y-2 min-h-screen ">
+      <div className=" flex justify-center items-center flex-col gap-y-2 min-h-screen mt-[1rem] ">
         <Image src="/assets/logo.svg" alt="logo" width={180} height={60} />
         <div className=" items-center justify-center rounded-md bg-[#fff]  md:w-[611px] md:h-[553px] md:p-[80px] p-[30px]">
           <form>
@@ -59,12 +76,13 @@ function ResetPasswordPage() {
               <p className=" text-[16px] mt-[8px]">Enter your new password</p>
             </div>
             <div className="flex flex-col w-full h-[86px] mt-[40px]">
-              <label className="justify-start w-full"> New Password</label>
+              <label htmlFor='new password' className="justify-start w-full"> New Password</label>
               <div className="flex items-center w-full border rounded-md mt-[8px]">
                 <input
                   type={showPassword ? "text" : "password"}
                   className="w-full p-[16px] outline-none bg-transparent"
                   placeholder="Password"
+                  required
                 />
                 <div className="p-[14px]" onClick={togglePasswordVisibility}>
                   {showPassword ? (
@@ -76,7 +94,7 @@ function ResetPasswordPage() {
               </div>
             </div>
             <div className="flex flex-col w-full h-[86px] mt-[24px]">
-              <label className="justify-start w-full">
+              <label htmlFor=' confirm new password' className="justify-start w-full">
                 Confirm New Password
               </label>
               <div className="flex items-center w-full border rounded-md mt-[8px]">
@@ -84,6 +102,7 @@ function ResetPasswordPage() {
                   type={showPassword ? "text" : "password"}
                   className="w-full p-[16px] outline-none bg-transparent"
                   placeholder="Password"
+                  required
                 />
                 <div className="p-[14px]" onClick={togglePasswordVisibility}>
                   {showPassword ? (
@@ -94,7 +113,7 @@ function ResetPasswordPage() {
                 </div>
               </div>
             </div>
-            <button className="rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] ">
+            <button type='submit' className="rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] ">
               Send recovery instructions
             </button>
           </form>
