@@ -19,7 +19,8 @@
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.3",
-    "tailwind-merge": "^2.2.0"
+    "tailwind-merge": "^2.2.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "20.10.6",
