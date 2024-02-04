@@ -34,13 +34,13 @@
 // };
 
 // export default MainComponent;
-// Block of Codes Above was for the modal component 
+// Block of Codes Above was for the modal component
 
 "use client";
-import React, { useEffect, useState } from 'react'
-import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
-import Image from 'next/image';
-
+import React, { useEffect, useState } from "react";
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import Image from "next/image";
+import router from "next/router";
 
 function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -62,21 +62,19 @@ function ResetPasswordPage() {
       setIsMicrosoftEdge(true);
     }
   }, []);
-  
-
 
   return (
     <>
       <div className=" flex justify-center items-center flex-col gap-y-2 min-h-screen mt-[1rem] ">
         <Image src="/assets/logo.svg" alt="logo" width={180} height={60} />
         <div className=" items-center justify-center rounded-md bg-[#fff]  md:w-[611px] md:h-[553px] md:p-[80px] p-[30px]">
-          <form>
+          <form >
             <div className=" justify-start items-start w-full flex-col flex">
               <h2 className=" font-bold text-2xl">Reset password</h2>
               <p className=" text-[16px] mt-[8px]">Enter your new password</p>
             </div>
             <div className="flex flex-col w-full h-[86px] mt-[40px]">
-              <label htmlFor='new password' className="justify-start w-full"> New Password</label>
+              <label className="justify-start w-full"> New Password</label>
               <div className="flex items-center w-full border rounded-md mt-[8px]">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -94,7 +92,7 @@ function ResetPasswordPage() {
               </div>
             </div>
             <div className="flex flex-col w-full h-[86px] mt-[24px]">
-              <label htmlFor=' confirm new password' className="justify-start w-full">
+              <label className="justify-start w-full">
                 Confirm New Password
               </label>
               <div className="flex items-center w-full border rounded-md mt-[8px]">
@@ -113,7 +111,10 @@ function ResetPasswordPage() {
                 </div>
               </div>
             </div>
-            <button type='submit' className="rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] ">
+            <button
+              type="submit"
+              className="rounded-md bg-[#265D5C] w-full h-[45px]  text-[#f1f1f1f1] mt-[32px] "
+            >
               Send recovery instructions
             </button>
           </form>
@@ -123,4 +124,4 @@ function ResetPasswordPage() {
   );
 }
 
-export default ResetPasswordPage
+export default ResetPasswordPage;
