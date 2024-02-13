@@ -26,3 +26,36 @@ export interface ModalProps {
   isCloseIconPresent?: boolean;
   closeBtnClass?: string;
 }
+
+
+// Toastify interface
+
+export type ToastPosition = 'top-right' | 'top-center' | 'top-left' | 'bottom-right' | 'bottom-center' | 'bottom-left';
+export type ToastTheme = 'light' | 'dark' | 'colored';
+export type ToastVariant = 'info' | 'success' | 'warning' | 'error' | 'default';
+export interface ToastProps {
+  message?: string;
+  position?: ToastPosition;
+  autoClose?: number;
+  hideProgressBar?: boolean;
+  closeOnClick?: boolean;
+  pauseOnHover?: boolean;
+  draggable?: boolean;
+  progress?: undefined;
+  theme?: ToastTheme;
+  type?: ToastVariant;
+}
+
+
+export interface AuthContextProps {
+  auth: AuthResponse | undefined;
+  email: string;
+  redirect: string;
+  userCameFrom: string | undefined;
+  userCameFromForOAuth: string | undefined;
+  handleAuth: (value: AuthResponse | undefined) => void;
+  handleEmail: (value: string) => void;
+  handleRedirect: (value: string) => void;
+  handleUserCameFrom: (value: string | undefined) => void;
+  handleUserCameFromForOAuth: (value: string | undefined) => void;
+}
