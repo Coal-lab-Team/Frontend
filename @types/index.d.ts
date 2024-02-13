@@ -59,3 +59,20 @@ export interface AuthContextProps {
   handleUserCameFrom: (value: string | undefined) => void;
   handleUserCameFromForOAuth: (value: string | undefined) => void;
 }
+
+
+// Password interface
+export interface PasswordPopoverProps {
+  password: string;
+  children: React.ReactNode;
+}
+
+export interface PasswordRequirementProps {
+  meets: boolean;
+  label: string;
+}
+
+export interface ProgressBarProps {
+  color: string;
+  value: number;
+}
