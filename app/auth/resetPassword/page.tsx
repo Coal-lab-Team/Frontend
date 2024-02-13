@@ -40,7 +40,12 @@
 import React, { useEffect, useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import Image from "next/image";
-import router from "next/router";
+import { useRouter } from "next/router";
+import useAuthMutation from "@/app/hook/Auth/useAuthMutation";
+import { resetPassword } from "@/app/http/auth";
+import { z } from "zod";
+import { useForm, zodResolver } from "@mantine/form";
+
 
 function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -63,12 +68,71 @@ function ResetPasswordPage() {
     }
   }, []);
 
+  // const router = useRouter();
+  // const { token } = router.query; // Get the token after the user is redirected.
+
+  // Hook for making an API call and handling the response
+  useAuthMutation(resetPassword, {
+    onSuccess: (data) => {
+      if (data.status === 200) {
+        setPasswordChanged(true);
+        return;
+      }
+
+      notify({
+        message: data?.message,
+        type: "error",
+        theme: "",
+      });
+    },
+    // onError: (error: any) => onResetPasswordError(error),
+    onError: (e: any) => {
+      console.log("Error", e);
+      notify({
+        message: e.message,
+        type: "error",
+        theme: "light",
+      });
+    },
+  });
+
+  // inputs validation
+  const schema = z
+    .object({
+      password: z
+        .string()
+        .regex(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}$/, {
+          message: "Please match requirements",
+        }),
+      confirmPassword: z
+        .string()
+        .min(2, { message: "Confirm password is required" }),
+    })
+    .superRefine(({ confirmPassword, password }, ctx) => {
+      if (confirmPassword !== password) {
+        ctx.addIssue({
+          path: ["confirmPassword"],
+          code: "custom",
+          message: "The passwords did not match",
+        });
+      }
+    });
+
+
+    const form = useForm({
+      validate: zodResolver(schema),
+      initialValues: {
+        password: "",
+        confirmPassword: "",
+      },
+    });
+
   return (
     <>
       <div className=" flex justify-center items-center flex-col gap-y-2 min-h-screen mt-[1rem] ">
         <Image src="/assets/logo.svg" alt="logo" width={180} height={60} />
         <div className=" items-center justify-center rounded-md bg-[#fff]  md:w-[611px] md:h-[553px] md:p-[80px] p-[30px]">
-          <form >
+          <form>
             <div className=" justify-start items-start w-full flex-col flex">
               <h2 className=" font-bold text-2xl">Reset password</h2>
               <p className=" text-[16px] mt-[8px]">Enter your new password</p>
@@ -125,3 +189,9 @@ function ResetPasswordPage() {
 }
 
 export default ResetPasswordPage;
+
+
+function notify(arg0: { message: any; type: string; theme: string; }) {
+  throw new Error("Function not implemented.");
+}
+
