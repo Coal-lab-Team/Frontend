@@ -1,8 +1,40 @@
-import {
-  MutationFunction,
-  useMutation,
-  UseMutationOptions,
-} from "@tanstack/react-query";
+// import {
+//   MutationFunction,
+//   useMutation,
+//   UseMutationOptions,
+// } from "@tanstack/react-query";
+
+// /**
+//  * @typedef {Object} TData - shape of the data returned from endpoint
+//  * @property {unknown} data - the data returned from the endpoint
+//  *
+//  * @typedef {Object} TError - shape of error returned from endpoint
+//  * @property {unknown} error - the error returned from the endpoint
+//  *
+//  * @typedef {Object} TVariables - shape of variables being passed to the mutationFn
+//  *
+//  * @typedef {Object} TContext
+//  */
+
+// const useAuthMutation = <
+//   TData = unknown,
+//   TError = unknown,
+//   TVariables = void,
+//   TContext = unknown
+// >(
+//   mutationFn: MutationFunction<TData, TVariables>,
+//   options?: Omit<
+//     UseMutationOptions<TData, TError, TVariables, TContext>,
+//     "mutationFn"
+//   >
+// ) => {
+//   const mutation = useMutation(mutationFn, options);
+
+//   return mutation;
+// };
+
+// export default useAuthMutation;
+
 
 /**
  * @typedef {Object} TData - shape of the data returned from endpoint
@@ -16,17 +48,46 @@ import {
  * @typedef {Object} TContext
  */
 
+// import {
+//   MutationFunction,
+//   useMutation,
+//   UseMutationOptions,
+// } from "@tanstack/react-query";
+
+// const useAuthMutation = <
+//   TData = unknown,
+//   TError = unknown,
+//   TVariables = void,
+//   TContext = unknown
+// >(
+//   mutationFn: MutationFunction<TData, TVariables>,
+//   options?: Omit<
+//     UseMutationOptions<TData, TError, TVariables, TContext>,
+//     "mutationFn"
+//   >
+// ) => {
+//   const mutation = useMutation(mutationFn, options);
+
+//   return mutation;
+// };
+
+// export default useAuthMutation;
+
+
+import {
+  MutationFunction,
+  UseMutationOptions,
+  useMutation,
+} from "@tanstack/react-query";
+
 const useAuthMutation = <
   TData = unknown,
-  TError = unknown,
+  TError = Error,
   TVariables = void,
   TContext = unknown
 >(
   mutationFn: MutationFunction<TData, TVariables>,
-  options?: Omit<
-    UseMutationOptions<TData, TError, TVariables, TContext>,
-    "mutationFn"
-  >
+  options?: UseMutationOptions<TData, TError, TVariables, TContext>
 ) => {
   // const mutation = useMutation(mutationFn, options);
 
@@ -34,5 +95,3 @@ const useAuthMutation = <
 };
 
 export default useAuthMutation;
-
-
