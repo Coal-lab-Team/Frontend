@@ -196,7 +196,7 @@
 import { useState, useEffect, MouseEventHandler } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import Image from "next/image";
-import  { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 import useAuthMutation from "@/app/hook/Auth/useAuthMutation";
 import { z } from "zod";
 import { useForm, zodResolver } from "@mantine/form";
@@ -212,14 +212,9 @@ function ResetPasswordPage() {
   const [routerReady, setRouterReady] = useState(false);
   const [mutate, setMutate] = useState<any>(null); // Adjust type accordingly
   const router = useRouter();
-  const { query } = router || {};
-
-  useEffect(() => {
-    // Check if the router is ready
-    if (router && router.isReady) {
-      setRouterReady(true);
-    }
-  }, [router]);
+   const searchParams = useSearchParams();
+    const token = searchParams.get("token");
+    console.log({token})
 
   useEffect(() => {
     // Check if the user is using Microsoft Edge
@@ -259,7 +254,7 @@ function ResetPasswordPage() {
 
     return () => {
       // Clean up the mutation
-      // authMutation.reset();
+      authMutation.reset();
     };
   }, [routerReady]);
 
@@ -288,12 +283,13 @@ function ResetPasswordPage() {
   });
 
   const handleResetPassword = (values: any) => {
-    if (!routerReady || !mutate || !query) return;
+    if (!routerReady || !mutate || !token) return;
 
     mutate.mutate({
-      token: query.token as string,
+      token,
       password: values.password,
     });
+    console.log("handleResetPassword")
   };
 
   const togglePasswordVisibility1: MouseEventHandler<HTMLDivElement> = () => {
