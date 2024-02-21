@@ -36,11 +36,12 @@
 // // export default MainComponent;
 // // Block of Codes Above was for the modal component
 
+
 // "use client";
-// import { useState, MouseEventHandler } from "react";
+// import { useState, useEffect, MouseEventHandler } from "react";
 // import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 // import Image from "next/image";
-// import { useRouter } from "next/router";
+// import { useRouter, useSearchParams } from "next/navigation";
 // import useAuthMutation from "@/app/hook/Auth/useAuthMutation";
 // import { z } from "zod";
 // import { useForm, zodResolver } from "@mantine/form";
@@ -53,31 +54,54 @@
 //   const [showPassword2, setShowPassword2] = useState(false);
 //   const [passwordChanged, setPasswordChanged] = useState(false);
 //   const [isMicrosoftEdge, setIsMicrosoftEdge] = useState(false);
-//   const router = useRouter();
-//   const { query } = router;
+//   const [routerReady, setRouterReady] = useState(false);
 //   const [mutate, setMutate] = useState<any>(null); // Adjust type accordingly
+//   const router = useRouter();
+//    const searchParams = useSearchParams();
+//     const token = searchParams.get("token");
+//     console.log({token})
 
-//   // Hook for making an API call and handling the response
-//   const authMutation = useAuthMutation(resetPassword, {
-//     onSuccess: (data) => {
-//       if (data.status === 200) {
-//         setPasswordChanged(true);
-//       } else {
+//   useEffect(() => {
+//     // Check if the user is using Microsoft Edge
+//     if (
+//       window.navigator.userAgent.includes("Edg") ||
+//       window.navigator.userAgent.includes("Edge")
+//     ) {
+//       setIsMicrosoftEdge(true);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     if (!routerReady) return;
+
+//     // Hook for making an API call and handling the response
+//     const authMutation = useAuthMutation(resetPassword, {
+//       onSuccess: (data) => {
+//         if (data.status === 200) {
+//           setPasswordChanged(true);
+//         } else {
+//           notify({
+//             message: data?.message,
+//             type: "error",
+//           });
+//         }
+//       },
+//       onError: (e: any) => {
+//         console.log("Error", e);
 //         notify({
-//           message: data?.message,
+//           message: e.message,
 //           type: "error",
+//           theme: "light",
 //         });
-//       }
-//     },
-//     onError: (e: any) => {
-//       console.log("Error", e);
-//       notify({
-//         message: e.message,
-//         type: "error",
-//         theme: "light",
-//       });
-//     },
-//   });
+//       },
+//     });
+//     setMutate(authMutation);
+
+//     return () => {
+//       // Clean up the mutation
+//       authMutation.reset();
+//     };
+//   }, [routerReady]);
 
 //   const schema = z
 //     .object({
@@ -103,15 +127,15 @@
 //     },
 //   });
 
-//  const handleResetPassword = (values: any) => {
-//    if (mutate && router && query) {
-//      mutate?.mutate({
-//        token: query.token as string,
-//        password: values.password,
-//      });
-//    }
-//  };
+//   const handleResetPassword = (values: any) => {
+//     if (!routerReady || !mutate || !token) return;
 
+//     mutate.mutate({
+//       token,
+//       password: values.password,
+//     });
+//     console.log("handleResetPassword")
+//   };
 
 //   const togglePasswordVisibility1: MouseEventHandler<HTMLDivElement> = () => {
 //     setShowPassword1((prev) => !prev);
@@ -212,9 +236,10 @@ function ResetPasswordPage() {
   const [routerReady, setRouterReady] = useState(false);
   const [mutate, setMutate] = useState<any>(null); // Adjust type accordingly
   const router = useRouter();
-   const searchParams = useSearchParams();
-    const token = searchParams.get("token");
-    console.log({token})
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
+  console.log({ token })
+
 
   useEffect(() => {
     // Check if the user is using Microsoft Edge
@@ -224,39 +249,43 @@ function ResetPasswordPage() {
     ) {
       setIsMicrosoftEdge(true);
     }
+
+    // Set routerReady to true after initial setup
+    setRouterReady(true);
   }, []);
 
-  useEffect(() => {
-    if (!routerReady) return;
-
-    // Hook for making an API call and handling the response
-    const authMutation = useAuthMutation(resetPassword, {
-      onSuccess: (data) => {
-        if (data.status === 200) {
-          setPasswordChanged(true);
-        } else {
-          notify({
-            message: data?.message,
-            type: "error",
-          });
-        }
-      },
-      onError: (e: any) => {
-        console.log("Error", e);
+  // Hook for making an API call and handling the response
+  const authMutation = useAuthMutation(resetPassword, {
+    onSuccess: (data: { status: number; message: any; }) => {
+      if (data.status === 200) {
+        setPasswordChanged(true);
+      } else {
         notify({
-          message: e.message,
+          message: data?.message,
           type: "error",
-          theme: "light",
         });
-      },
-    });
+      }
+    },
+    onError: (e: any) => {
+      console.log("Error", e);
+      notify({
+        message: e.message,
+        type: "error",
+        theme: "light",
+      });
+    },
+  });
+
+  useEffect(() => {
+    if (!routerReady || !authMutation) return;
+
     setMutate(authMutation);
 
     return () => {
       // Clean up the mutation
       authMutation.reset();
     };
-  }, [routerReady]);
+  }, [routerReady, authMutation]);
 
   const schema = z
     .object({
@@ -289,7 +318,7 @@ function ResetPasswordPage() {
       token,
       password: values.password,
     });
-    console.log("handleResetPassword")
+    console.log("handleResetPassword");
   };
 
   const togglePasswordVisibility1: MouseEventHandler<HTMLDivElement> = () => {
@@ -370,4 +399,3 @@ function ResetPasswordPage() {
 }
 
 export default ResetPasswordPage;
-
