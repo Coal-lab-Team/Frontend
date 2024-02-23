@@ -78,7 +78,7 @@ const useAuthMutation = <
 
   const mutation = useMutation<TData, TError, TVariables, TContext>(
     mutationFn as any ,
-    options as any,
+    options ,
   );
 
   console.log("mutation:", mutation);

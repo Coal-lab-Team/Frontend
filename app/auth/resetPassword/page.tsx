@@ -36,7 +36,6 @@
 // // export default MainComponent;
 // // Block of Codes Above was for the modal component
 
-
 // "use client";
 // import { useState, useEffect, MouseEventHandler } from "react";
 // import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
@@ -221,12 +220,17 @@ import { useState, useEffect, MouseEventHandler } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import useAuthMutation from "@/app/hook/Auth/useAuthMutation";
 import { z } from "zod";
 import { useForm, zodResolver } from "@mantine/form";
 import PasswordPopover from "@/components/PasswordPopover";
 import { resetPassword } from "@/app/http/auth";
 import { notify } from "@/components/Ui/Toast";
+
+const LoadingSpinner = () => (
+  <div className="flex item-center justify-center mt-[2rem]">Loading...</div> // Customized position to fit in
+);
 
 function ResetPasswordPage() {
   const [showPassword1, setShowPassword1] = useState(false);
@@ -236,10 +240,14 @@ function ResetPasswordPage() {
   const [routerReady, setRouterReady] = useState(false);
   const [mutate, setMutate] = useState<any>(null); // Adjust type accordingly
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token");
-  console.log({ token })
 
+  // Wrap useSearchParams() in Suspense boundary
+  // const searchParams = (
+  //   useSearchParams()
+  // );
+  //  const token = useSearchParams().get("token");
+  const token = useSearchParams().get("token");
+  console.log({ token });
 
   useEffect(() => {
     // Check if the user is using Microsoft Edge
@@ -256,7 +264,7 @@ function ResetPasswordPage() {
 
   // Hook for making an API call and handling the response
   const authMutation = useAuthMutation(resetPassword, {
-    onSuccess: (data: { status: number; message: any; }) => {
+    onSuccess: (data: { status: number; message: any }) => {
       if (data.status === 200) {
         setPasswordChanged(true);
       } else {
@@ -330,7 +338,7 @@ function ResetPasswordPage() {
   };
 
   return (
-    <>
+    <Suspense fallback={<LoadingSpinner />}>
       <div className="flex justify-center items-center flex-col gap-y-2 min-h-screen mt-[1rem] ">
         <Image src="/assets/logo.svg" alt="logo" width={180} height={60} />
         <div className="items-center justify-center rounded-md bg-[#fff]  md:w-[611px] md:h-[553px] md:p-[80px] p-[30px]">
@@ -394,7 +402,7 @@ function ResetPasswordPage() {
           </form>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 }
 
