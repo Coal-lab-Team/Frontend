@@ -65,14 +65,14 @@ function ResetPasswordPage() {
   const searchParams = (
     <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>
   );
-  // const token = searchParams.get("token");
-  // console.log({ token });
-  const token = (() => {
-    const searchParams = useSearchParams();
-    return searchParams.get("token");
-  })();
-
+  const token = searchParams.get("token");
   console.log({ token });
+  // const token = (() => {
+  //   const searchParams = useSearchParams();
+  //   return searchParams.get("token");
+  // })();
+
+  // console.log({ token });
 
   useEffect(() => {
     // Check if the user is using Microsoft Edge
