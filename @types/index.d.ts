@@ -76,3 +76,4 @@ export interface ProgressBarProps {
   color: string;
   value: number;
 }
+

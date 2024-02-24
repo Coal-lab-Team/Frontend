@@ -216,11 +216,10 @@
 // export default ResetPasswordPage;
 
 "use client";
-import { useState, useEffect, MouseEventHandler } from "react";
+import { useState, useEffect, MouseEventHandler, Suspense } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 import useAuthMutation from "@/app/hook/Auth/useAuthMutation";
 import { z } from "zod";
 import { useForm, zodResolver } from "@mantine/form";
@@ -229,7 +228,7 @@ import { resetPassword } from "@/app/http/auth";
 import { notify } from "@/components/Ui/Toast";
 
 const LoadingSpinner = () => (
-  <div className="flex item-center justify-center mt-[2rem]">Loading...</div> // Customized position to fit in
+  <div className="flex item-center justify-center mt-[2rem]">Loading...</div> // Customized position to fit in the center
 );
 
 function ResetPasswordPage() {
@@ -243,10 +242,15 @@ function ResetPasswordPage() {
 
   // Wrap useSearchParams() in Suspense boundary
   // const searchParams = (
-  //   useSearchParams()
+  //   <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>
   // );
-  //  const token = useSearchParams().get("token");
-  const token = useSearchParams().get("token");
+  //   const token = searchParams.get("token");
+  // console.log({ token });
+  const token = (() => {
+    const searchParams = useSearchParams();
+    return searchParams.get("token");
+  })();
+
   console.log({ token });
 
   useEffect(() => {
@@ -338,7 +342,7 @@ function ResetPasswordPage() {
   };
 
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <>
       <div className="flex justify-center items-center flex-col gap-y-2 min-h-screen mt-[1rem] ">
         <Image src="/assets/logo.svg" alt="logo" width={180} height={60} />
         <div className="items-center justify-center rounded-md bg-[#fff]  md:w-[611px] md:h-[553px] md:p-[80px] p-[30px]">
@@ -402,7 +406,7 @@ function ResetPasswordPage() {
           </form>
         </div>
       </div>
-    </Suspense>
+    </>
   );
 }
 

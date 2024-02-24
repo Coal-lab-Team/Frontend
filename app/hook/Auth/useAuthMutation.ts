@@ -76,9 +76,10 @@ const useAuthMutation = <
   console.log("mutationFn:", mutationFn);
   console.log("options:", options);
 
+  // Ensure mutationFn is correctly casted
   const mutation = useMutation<TData, TError, TVariables, TContext>(
-    mutationFn as any ,
-    options ,
+    mutationFn,
+    options 
   );
 
   console.log("mutation:", mutation);
@@ -87,5 +88,3 @@ const useAuthMutation = <
 };
 
 export default useAuthMutation;
-
-
