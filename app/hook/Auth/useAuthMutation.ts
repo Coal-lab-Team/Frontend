@@ -30,8 +30,8 @@ const useAuthMutation = <
 
   // Ensure mutationFn is correctly casted
   const mutation = useMutation<TData, TError, TVariables, TContext>(
-    mutationFn as any,
-    options as any
+    mutationFn,
+    options
   );
 
   console.log("mutation:", mutation);
