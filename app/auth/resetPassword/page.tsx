@@ -26,7 +26,7 @@ function ResetPasswordPage() {
   // Wrap useSearchParams() in Suspense boundary
 
   const searchParams = useSearchParams();
-  <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>;
+  // <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>;
   const token = searchParams.get("token");
   console.log({ token });
 
@@ -75,6 +75,9 @@ function ResetPasswordPage() {
     setMutate(authMutation);
 
     return () => {
+       <Suspense fallback={<LoadingSpinner />}>
+         <ResetPasswordPage />
+       </Suspense>;
       // Clean up the mutation
       authMutation.reset();
     };
