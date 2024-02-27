@@ -1,41 +1,3 @@
-// // import React from 'react'
-
-// // function page() {
-// //   return (
-// //     <>
-// //     </>
-// //   )
-// // }
-
-// // export default page
-
-// // "use client";
-
-// // import React, { useState } from 'react';
-// // import ResetPassModal from '../../../components/resetPassModal/resetPassModal';
-
-// // const MainComponent: React.FC = () => {
-// //   const [showModal, setShowModal] = useState(false);
-
-// //   const openModal = () => {
-// //     setShowModal(true);
-// //   };
-
-// //   const closeModal = () => {
-// //     setShowModal(false);
-// //   };
-
-// //   return (
-// //     <div className=' items-center justify-center flex flex-col '>
-// //       <button onClick={openModal} >Reset Password?</button>
-// //       {showModal && <ResetPassModal onClose={closeModal} />}
-// //     </div>
-// //   );
-// // };
-
-// // export default MainComponent;
-// // Block of Codes Above was for the modal component
-
 "use client";
 import { useState, useEffect, MouseEventHandler, Suspense } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
@@ -62,17 +24,11 @@ function ResetPasswordPage() {
   const router = useRouter();
 
   // Wrap useSearchParams() in Suspense boundary
-  const searchParams = (
-    <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>
-  );
+
+  const searchParams = useSearchParams();
+  <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>;
   const token = searchParams.get("token");
   console.log({ token });
-  // const token = (() => {
-  //   const searchParams = useSearchParams();
-  //   return searchParams.get("token");
-  // })();
-
-  // console.log({ token });
 
   useEffect(() => {
     // Check if the user is using Microsoft Edge
@@ -88,26 +44,30 @@ function ResetPasswordPage() {
   }, []);
 
   // Hook for making an API call and handling the response
-  const authMutation = useAuthMutation(resetPassword, {
-    onSuccess: (data: { status: number; message: any }) => {
-      if (data.status === 200) {
-        setPasswordChanged(true);
-      } else {
+  const authMutation = useAuthMutation(
+    {
+      mutationFn: resetPassword,
+      onSuccess: (data: { status: number; message: any }) => {
+        if (data.status === 200) {
+          setPasswordChanged(true);
+        } else {
+          notify({
+            message: data?.message,
+            type: "error",
+          });
+        }
+      },
+      onError: (e: any) => {
+        console.log("Error", e);
         notify({
-          message: data?.message,
+          message: e.message,
           type: "error",
+          theme: "light",
         });
-      }
+      },
     },
-    onError: (e: any) => {
-      console.log("Error", e);
-      notify({
-        message: e.message,
-        type: "error",
-        theme: "light",
-      });
-    },
-  });
+    
+  );
 
   useEffect(() => {
     if (!routerReady || !authMutation) return;

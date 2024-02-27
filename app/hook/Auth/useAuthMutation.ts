@@ -1,5 +1,6 @@
 import {
   MutationFunction,
+  QueryClient,
   useMutation,
   UseMutationOptions,
 } from "@tanstack/react-query";
@@ -22,16 +23,20 @@ const useAuthMutation = <
   TVariables = void,
   TContext = unknown
 >(
-  mutationFn: MutationFunction<TData, TVariables>,
-  options?: UseMutationOptions<TData, TError, TVariables, TContext>
+  // mutationFn: MutationFunction<TData, TVariables>,
+  // options?: UseMutationOptions<TData, TError, TVariables, TContext>
+  mutationOptions: UseMutationOptions<TData, TError, TVariables, TContext>,
+  queryClient?: QueryClient
 ) => {
-  console.log("mutationFn:", mutationFn);
-  console.log("options:", options);
+  console.log("mutationOptions:", mutationOptions);
+  console.log("queryClient:", queryClient);
 
   // Ensure mutationFn is correctly casted
   const mutation = useMutation<TData, TError, TVariables, TContext>(
-    mutationFn,
-    options
+    // mutationFn,
+    // options
+    mutationOptions,
+    queryClient
   );
 
   console.log("mutation:", mutation);
