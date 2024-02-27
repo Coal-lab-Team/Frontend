@@ -194,7 +194,7 @@
 
 // export default ResetPasswordPage;
 
-
+"use client";
 import { useState, useEffect, MouseEventHandler, Suspense } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import Image from "next/image";
