@@ -14,11 +14,11 @@ const LoadingSpinner = () => (
   <div className="flex item-center justify-center mt-[2rem]">Loading...</div> // Customized position to fit in the center
 );
 
-function ResetPasswordPage() {
+export default function ResetPasswordPage() {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [passwordChanged, setPasswordChanged] = useState(false);
-  const [isMicrosoftEdge, setIsMicrosoftEdge] = useState(false);
+
   const [routerReady, setRouterReady] = useState(false);
   const [mutate, setMutate] = useState<any>(null); // Adjust type accordingly
   const router = useRouter();
@@ -26,48 +26,34 @@ function ResetPasswordPage() {
   // Wrap useSearchParams() in Suspense boundary
 
   const searchParams = useSearchParams();
-  <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>;
+  // <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>;
   const token = searchParams.get("token");
+  // const token = useSearchParams().get("token");
+
   console.log({ token });
 
-  useEffect(() => {
-    // Check if the user is using Microsoft Edge
-    if (
-      window.navigator.userAgent.includes("Edg") ||
-      window.navigator.userAgent.includes("Edge")
-    ) {
-      setIsMicrosoftEdge(true);
-    }
-
-    // Set routerReady to true after initial setup
-    setRouterReady(true);
-  }, []);
-
   // Hook for making an API call and handling the response
-  const authMutation = useAuthMutation(
-    {
-      mutationFn: resetPassword,
-      onSuccess: (data: { status: number; message: any }) => {
-        if (data.status === 200) {
-          setPasswordChanged(true);
-        } else {
-          notify({
-            message: data?.message,
-            type: "error",
-          });
-        }
-      },
-      onError: (e: any) => {
-        console.log("Error", e);
+  const authMutation = useAuthMutation({
+    mutationFn: resetPassword,
+    onSuccess: (data: { status: number; message: any }) => {
+      if (data.status === 200) {
+        setPasswordChanged(true);
+      } else {
         notify({
-          message: e.message,
+          message: data?.message,
           type: "error",
-          theme: "light",
         });
-      },
+      }
     },
-    
-  );
+    onError: (e: any) => {
+      console.log("Error", e);
+      notify({
+        message: e.message,
+        type: "error",
+        theme: "light",
+      });
+    },
+  });
 
   useEffect(() => {
     if (!routerReady || !authMutation) return;
@@ -105,6 +91,11 @@ function ResetPasswordPage() {
   });
 
   const handleResetPassword = (values: any) => {
+    console.log("Submitting form with values:", values);
+    console.log("routerReady:", routerReady);
+    console.log("mutate:", mutate);
+    console.log("token:", token);
+
     if (!routerReady || !mutate || !token) return;
 
     mutate.mutate({
@@ -191,4 +182,4 @@ function ResetPasswordPage() {
   );
 }
 
-export default ResetPasswordPage;
+// export default ResetPasswordPage;
