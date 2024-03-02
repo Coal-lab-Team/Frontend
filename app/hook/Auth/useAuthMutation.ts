@@ -1,5 +1,4 @@
 import {
-  MutationFunction,
   QueryClient,
   useMutation,
   UseMutationOptions,
@@ -23,8 +22,6 @@ const useAuthMutation = <
   TVariables = void,
   TContext = unknown
 >(
-  // mutationFn: MutationFunction<TData, TVariables>,
-  // options?: UseMutationOptions<TData, TError, TVariables, TContext>
   mutationOptions: UseMutationOptions<TData, TError, TVariables, TContext>,
   queryClient?: QueryClient
 ) => {
@@ -33,8 +30,6 @@ const useAuthMutation = <
 
   // Ensure mutationFn is correctly casted
   const mutation = useMutation<TData, TError, TVariables, TContext>(
-    // mutationFn,
-    // options
     mutationOptions,
     queryClient
   );

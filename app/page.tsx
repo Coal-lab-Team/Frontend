@@ -7,7 +7,7 @@
 //   );
 //   export default function Home() {
 //     const searchParams = useSearchParams();
-    
+
 //     return (
 //       <>
 //       <Suspense fallback={<LoadingSpinner />}>
@@ -18,6 +18,7 @@
 //     </>
 //   );
 // }
+
 "use client";
 import HomeLayout from "@/layout/HomeLayout";
 import { Suspense, useEffect, useState } from "react";

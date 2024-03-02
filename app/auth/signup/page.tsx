@@ -9,8 +9,8 @@ import { signup as signupApi } from "../../http/auth";
 function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName]= useState("");
-  const [lastName,setLastName]= useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
 
@@ -21,17 +21,15 @@ function SignUpPage() {
     //Email validation using a regular expression
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (firstName=== "") {
-      alert ("FirstName is missing");
+    if (firstName === "") {
+      alert("FirstName is missing");
       return;
     }
 
-    if (lastName=== "") {
+    if (lastName === "") {
       alert("LastName is missing");
       return;
-      
     }
-      
 
     if (password === "") {
       alert("Password is missing");
@@ -43,10 +41,7 @@ function SignUpPage() {
       return;
     }
 
-    signupApi({ firstName, lastName,email, password });
-
-    //signUp logic here, using the validated email and password
-    //'firstName', 'lastName', 'email' and 'password' states to proceed with authentication.
+    signupApi({ firstName, lastName, email, password });
   };
   return (
     <>
