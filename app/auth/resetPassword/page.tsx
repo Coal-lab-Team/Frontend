@@ -26,7 +26,6 @@ export default function ResetPasswordPage() {
   // Wrap useSearchParams() in Suspense boundary
 
   const searchParams = useSearchParams();
-  // <Suspense fallback={<LoadingSpinner />}>{useSearchParams()}</Suspense>;
   const token = searchParams.get("token");
   // const token = useSearchParams().get("token");
 
