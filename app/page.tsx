@@ -1,23 +1,3 @@
-// import HomeLayout from "@/layout/HomeLayout";
-// import {useSearchParams} from "next/navigation";
-// import { Suspense } from "react";
-
-// const LoadingSpinner = () => (
-//   <div className="flex item-center justify-center mt-[2rem]">Loading...</div> // Customized position to fit in the center
-//   );
-//   export default function Home() {
-//     const searchParams = useSearchParams();
-
-//     return (
-//       <>
-//       <Suspense fallback={<LoadingSpinner />}>
-//         <HomeLayout>
-//           <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
-//         </HomeLayout>
-//       </Suspense>
-//     </>
-//   );
-// }
 
 "use client";
 import HomeLayout from "@/layout/HomeLayout";
