@@ -103,12 +103,9 @@ function LoginPage() {
               <label>Remember me</label>
             </div>
             <div>
-              {/* <Link href={'./forgotPassword'} className='text-[#265D5C]'>Forgot password?</Link> */}
-              {/* <button onClick={openModal} className="text-[#265D5C]"> */}
               <button onClick={onOpen} className="text-[#265D5C]">
                 Forgot Password?
               </button>
-              {/* {showModal && <ForgotPassModal onClose={closeModal} />} */}
               <ForgotPasswordModal isOpen={isOpen} onClose={onClose} />
             </div>
           </div>
