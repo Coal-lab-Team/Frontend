@@ -23,11 +23,10 @@ export default function ResetPasswordPage() {
   const [mutate, setMutate] = useState<any>(null); // Adjust type accordingly
   const router = useRouter();
 
+  
   // Wrap useSearchParams() in Suspense boundary
-
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
-  // const token = useSearchParams().get("token");
 
   console.log({ token });
 

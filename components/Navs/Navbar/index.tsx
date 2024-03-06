@@ -67,10 +67,7 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      {/* <div className="hidden lg:flex gap-x-3 xl:gap-x-5 [&>button]:border-[#FED3A6] [&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button]:rounded-md [&>button:last-child]:bg-[#265D5C]  [&>button:last-child]:text-white-100 [&>button]:font-medium [&>button]:text-[#252525]">
-        <button type="button">Login</button>
-        <button type="button">Sign up</button>
-      </div> */}
+      
       <div className="hidden lg:flex gap-x-3 xl:gap-x-5">
         <Link href="/auth/login">
           <button
