@@ -19,15 +19,15 @@ const fetchData = async () => {
 };
 
 export default function Home() {
-  const [data, setData] = useState<string | null>(null); // explicitly specify the type as string or null
+  // const [data, setData] = useState<string | null>(null); // explicitly specify the type as string or null
 
-  useEffect(() => {
-    // Fetch data asynchronously
-    fetchData().then((data: string) => {
-      // explicitly specify the type of data received
-      setData(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Fetch data asynchronously
+  //   fetchData().then((data: string) => {
+  //     // explicitly specify the type of data received
+  //     setData(data);
+  //   });
+  // }, []);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function Home() {
         <HomeLayout>
           <main className="flex min-h-screen flex-col items-center justify-between p-24">
             {/* Render data when it's available */}
-            {data && <p>{data}</p>}
+            {/* {data && <p>{data}</p>} */}
           </main>
         </HomeLayout>
       </Suspense>
