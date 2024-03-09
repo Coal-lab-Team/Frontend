@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { BsX } from "react-icons/bs";
+import Button from "@/components/Ui/Button";
 
 const MobileNav = () => {
   const { showMobileMenu, setShowMobileMenu } = useStateCtx();
@@ -59,7 +60,7 @@ const MobileNav = () => {
             : "translate-x-full duration-300"
         )}
       >
-        <button
+        <Button
           autoFocus
           aria-label="close menu"
           type="button"
@@ -68,8 +69,8 @@ const MobileNav = () => {
           tabIndex={0}
         >
           <BsX />
-        </button>
-        <div className="flex flex-col items-start h-full gap-y-10 ">
+        </Button>
+        <div className="flex flex-col items-start h-full w-full gap-y-2 ">
           {NAVLINKS.map((link) => (
             <Link
               tabIndex={0}
@@ -85,17 +86,30 @@ const MobileNav = () => {
                 setShowMobileMenu(false);
               }}
               className={cn(
-                "border focus-visible:rounded-md focus-visible:border-2 outline-none focus-visible:p-1 focus-visible:border-primary   text-black  flex justify-center capitalize relative font-medium  before:bg- before:w-[0%] before:h-1 before:absolute before:-bottom-2 before:left-0 before:transition-all before:duration-500 text-lg",
+                " text-black  flex justify-center capitalize relative font-medium  before:bg- before:w-[0%] before:h-1 before:absolute before:-bottom-2 before:left-0 before:transition-all before:duration-500 text-lg",
                 isActive === link.link ? "before:w-full text-primary-light" : ""
               )}
             >
               {link.label}
-              {/* <span>{link.label}</span> */}
             </Link>
           ))}
-          <div className="hidden lg:flex gap-x-3 xl:gap-x-5 [&>button]:border-[#FED3A6] [&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button]:rounded-md [&>button:last-child]:bg-[#265D5C]  [&>button:last-child]:text-white-100 [&>button]:font-medium [&>button]:text-[#252525]">
-            <button type="button">Login</button>
-            <button type="button">Sign up</button>
+          <div className="flex flex-col items-center  justify-center  gap-y-2 w-full mt-5">
+            <Link href="/auth/login">
+              <Button
+                type="button"
+                className=" border-[#FED3A6] border px-16 py-2 rounded-md  font-medium text-[#252525]"
+              >
+                Login
+              </Button>
+            </Link>
+            <Link href="/auth/signup">
+              <Button
+                type="button"
+                className=" rounded-md px-16 py-2 font-medium text-white-100 bg-[#265D5C] mt-3"
+              >
+                Sign up
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>

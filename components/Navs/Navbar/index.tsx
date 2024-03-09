@@ -10,6 +10,7 @@ import { FaBars } from "react-icons/fa";
 import MobileNav from "../MobileNav";
 import { useStateCtx } from "@/context/StateContext";
 import useWindowHeight from "@/hooks/useDimension";
+import Button from "@/components/Ui/Button";
 
 const Navbar = () => {
   const { showMobileMenu, setShowMobileMenu } = useStateCtx();
@@ -70,21 +71,21 @@ const Navbar = () => {
       
       <div className="hidden lg:flex gap-x-3 xl:gap-x-5">
         <Link href="/auth/login">
-          <button
+          <Button
             type="button"
             className="border-[#FED3A6] border px-4 py-2 rounded-md font-medium text-[#252525]"
           >
             Login
-          </button>
+          </Button>
         </Link>
 
         <Link href="/auth/signup">
-          <button
+          <Button
             type="button"
             className=" px-4 py-2 rounded-md font-medium text-white-100 bg-[#265D5C] "
           >
             Sign up
-          </button>
+          </Button>
         </Link>
       </div>
       <div
