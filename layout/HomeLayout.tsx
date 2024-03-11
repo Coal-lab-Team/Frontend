@@ -3,6 +3,12 @@ import React, { useState } from "react";
 import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Footer";
 import Header from "@/components/Header";
+import ScrollableCards from "@/components/ScrollCards";
+
+
+
+
+
 export default function HomeLayout({
   children,
 }: {
@@ -12,6 +18,7 @@ export default function HomeLayout({
     <>
       <Navbar />
       <Header/>
+      <ScrollableCards/>
       {children}
       <Footer />
     </>
