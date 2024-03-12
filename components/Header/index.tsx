@@ -58,6 +58,7 @@ import Button from "../Ui/Button";
 import Link from "next/link";
 import { BsLightningCharge } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { CiSearch } from "react-icons/ci";
 import Image from "next/image";
 
 const Header = () => {
@@ -73,11 +74,20 @@ const Header = () => {
               Browse a wide range of templates, sign up and start downloading
               for free
             </p>
-            <div className="mt-8 w-full">
+            {/* <div className="mt-8 w-full">
+              <CiSearch/>
               <input
                 className="rounded-[12px] px-4 py-2 text-[#BBB] placeholder-opacity-100 border border-solid border-[#E6E6E6] bg-[#F6F6F6] w-full"
                 placeholder="Search templates on web, apps, figma, ecommerce and more..."
-              />
+              /> */}
+            <div className="mt-8 w-full relative">
+              <div className="relative">
+                <CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <input
+                  className="rounded-[12px] px-10 py-2 pl-10 text-[#BBB] placeholder-opacity-100 border border-solid border-[#E6E6E6] bg-[#F6F6F6] w-full"
+                  placeholder="Search templates on web, apps, figma, ecommerce and more..."
+                />
+              </div>
               <div className="flex flex-col sm:flex-row mt-8 w-full">
                 <Link href="/auth/login">
                   <Button
