@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        " max-[500px]:py-2 shadow-lg shadow-slate-800/20  px-4 sm:px-8 xl:px-10 2xl:px-14 flex w-full justify-between items-center  transition-colors duration-500",
+        " max-[500px]:py-2 shadow-lg shadow-slate-800/20 px-4 sm:px-8 xl:px-10 2xl:px-14 flex w-full justify-between items-center  transition-colors duration-500",
         scrollHeight > 200
           ? " fixed backdrop-blur-xl top-0 left-0  z-50 -translate-y-28 opacity-0 animate-slideDown bg-white-100 py-3 border-b border-gray-200 shadow-md"
           : "md:py-3 py-3",
