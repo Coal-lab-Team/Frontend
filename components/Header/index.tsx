@@ -10,10 +10,10 @@ import Image from "next/image";
 const Header = () => {
   return (
     <header className="w-full h-full bg-[#1B4241]">
-      <div className="flex flex-col md:flex-row justify-between items-start w-full min-h-[550px] max-w-[1100px] px-4 sm:px-8 xl:px-10 2xl:px-14">
-        <div className="flex flex-col justify-start items-start max-w-[720px] ">
-          <div className="my-[147px] ">
-            <h2 className="text-[#FEDCB8] text-5xl leading-[140%] font-semibold tracking-[0.063em]">
+      <div className="flex flex-col md:flex-row justify-between items-start w-full min-h-[550px] max-w-[1440px] px-4 sm:px-8 xl:px-10 2xl:px-14">
+        <div className="flex flex-col justify-start items-start max-w-[681px] ">
+          <div className=" my-[32px] md:my-[147px] md:w-[550px]">
+            <h2 className="text-[#FEDCB8] text-3xl md:text-5xl sm:text-2xl  leading-[140%] font-semibold tracking-[0.063em]">
               A market-place of timeless, easy-to-use digital templates
             </h2>
             <p className="font-normal mt-4 text-white-100">
@@ -87,7 +87,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="hidden md:block md:w-1/3 ml-auto my-[147px] absolute inset-0 bg-cover bg-center bg-lightgray-50% ">
+        <div className="hidden lg:block   md:w-1/3 ml-auto my-[147px] absolute inset-0 bg-cover bg-center bg-lightgray-50% ">
           <Image
             src="/assets/header.svg"
             alt=" header banner"
@@ -101,3 +101,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
