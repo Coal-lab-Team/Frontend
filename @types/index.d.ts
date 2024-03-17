@@ -60,6 +60,23 @@ export interface AuthContextProps {
   handleUserCameFromForOAuth: (value: string | undefined) => void;
 }
 
+export type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  isVerified: boolean;
+  roleId: number;
+  twoFactorAuth: boolean;
+  two_factor_auth: boolean;
+  slug: string | null;
+};
+
+export type AuthResponse = {
+  token: string;
+  user: User;
+};
+
 
 // Password interface
 export interface PasswordPopoverProps {
