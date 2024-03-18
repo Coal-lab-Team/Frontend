@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://coallab.onrender.com/api/v1";
+export const BASE_URL = "https://coallab.onrender.com/api/v1";
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -66,9 +66,13 @@ export const resetPassword = async ({
   password: string;
 }) => {
   try {
-    const response = await api.patch("/reset-password",{UserId,password});
+    const response = await api.patch("/reset-password", { UserId, password });
     return response?.data;
   } catch (e: any) {
     throw e?.response?.data || { message: e.message };
   }
+};
+
+export const Google = () => {
+  return api.get("/google");
 };
