@@ -73,6 +73,27 @@ export const resetPassword = async ({
   }
 };
 
+export const authorizeToken = async (props: { token: string }) => {
+  try {
+    const res = await api.post("/authorize", props);
+    return res?.data;
+  } catch (e: any) {
+    throw e?.response?.data || { message: e.message };
+  }
+};
+
+export const signUpWithOAuth = async (props: {
+  query: string;
+  oAuth: string;
+}) => {
+  try {
+    const res = await api.get(`${props.oAuth}/redirect?${props.query}`);
+    return res?.data;
+  } catch (e: any) {
+    throw e?.response?.data || { message: e.message };
+  }
+};
+
 export const Google = () => {
   return api.get("/google");
 };
