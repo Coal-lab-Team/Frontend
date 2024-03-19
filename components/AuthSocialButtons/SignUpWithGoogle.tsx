@@ -20,7 +20,6 @@ const SignUpWithGoogle = () => {
     <SignUpWithSocialsButton
       onClick={handleLinkClick}
       isLoading={isloading}
-      //onClick={handleGoogleSignIn}
       leftIcon={<Image src={googleLogo} alt="Google Logo" className="" />}
     >
       Continue with Google
