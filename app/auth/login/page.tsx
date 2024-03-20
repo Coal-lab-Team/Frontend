@@ -7,6 +7,7 @@ import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import ForgotPasswordModal from "../../../components/ForgotPassModal";
 import useDisclosure from "@/app/hook/useDisclosure";
 
+import SignUpWithGoogle from "@/components/AuthSocialButtons/SignUpWithGoogle";
 import { login as loginApi } from "../../http/auth";
 
 function LoginPage() {
@@ -114,6 +115,16 @@ function LoginPage() {
             <Link href={"./signup"} className=" text-[#265D5C]">
               Create account
             </Link>
+          </div>
+          <div className="flex items-center justify-center mt-[32px] ">
+            <div className="w-1/2 h-[0.0625rem] bg-white-650"></div>
+            <p className="mx-4 text-white-650 font-semibold">OR</p>
+            <div className="w-1/2 h-[0.0625rem] bg-white-650 "></div>
+          </div>
+          <div className="mt-[1.6rem] flex flex-col gap-[1rem] relative">
+            <SignUpWithGoogle />
+            {/* <SignUpWithGithub /> */}
+            {/* <SignUpWithFacebook /> */}
           </div>
         </div>
       </div>
