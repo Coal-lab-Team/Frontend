@@ -4,6 +4,8 @@ import Image from "next/image";
 import { FaRegEnvelope } from "react-icons/fa";
 import { GoKey } from "react-icons/go";
 import Link from "next/link";
+
+import SignUpWithGoogle from "@/components/AuthSocialButtons/SignUpWithGoogle";
 import { signup as signupApi } from "../../http/auth";
 
 function SignUpPage() {
@@ -123,6 +125,16 @@ function SignUpPage() {
             <Link href={"./login"} className=" text-[#265D5C]">
               Sign in
             </Link>
+          </div>
+          <div className="flex items-center justify-center mt-[32px] ">
+            <div className="w-1/2 h-[0.0625rem] bg-white-650"></div>
+            <p className="mx-4 text-white-650 font-semibold">OR</p>
+            <div className="w-1/2 h-[0.0625rem] bg-white-650 "></div>
+          </div>
+          <div className="mt-[1.6rem] flex flex-col gap-[1rem] relative">
+            <SignUpWithGoogle />
+            {/* <SignUpWithGithub /> */}
+            {/* <SignUpWithFacebook /> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import SignUpWithSocialsButton from "./SignUpWithSocialsButton";
-import googleLogo from "../../../../public/assets/Google.png";
+import googleLogo from "@/public/assets/googleLogo.svg"
 // import {BASE_URL} from "../../app/http/auth"
 import { BASE_URL } from "../../app/http/auth";
 
