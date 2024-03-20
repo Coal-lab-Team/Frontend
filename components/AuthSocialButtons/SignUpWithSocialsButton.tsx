@@ -78,6 +78,7 @@ const SignUpWithSocialsButton: FC<ButtonProps> = ({
       onClick={handleClick} // Pass handleClick as onClick handler
       style={{ outline: "none" }} // Remove outline
       {...props}
+      isLoading={false} // Ensure that isLoading is always false to prevent spinner from appearing
     >
       <div className="w-[20px]">{leftIcon}</div>
       <p className="text-center">{children}</p>
