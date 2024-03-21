@@ -4,6 +4,7 @@ import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Footer";
 import Header from "@/components/Header";
 import ScrollableCards from "@/components/ScrollCards";
+import Testimonials from "@/components/Testimonials";
 
 
 
@@ -20,6 +21,7 @@ export default function HomeLayout({
       <Header/>
       <ScrollableCards/>
       {children}
+      <Testimonials/>
       <Footer />
     </>
   );
