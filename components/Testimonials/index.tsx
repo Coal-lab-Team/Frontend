@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const TextContent =
   "Their design process is really unique. They collaborated with us on our project. The communication was simple and transparent. They have a talented team of designers.";
@@ -10,31 +11,35 @@ interface CardProps {
 }
 
 
-
-
 const Card: React.FC<CardProps> = ({ header, subheader, content, image }) => (
   <div
-    className="card flex flex-row mr-2 p-4 border border-gray-200 rounded-md shadow-md relative mt-2"
-    style={{ width: "335px", height: "198px" }}
+    className="card flex flex-col mr-2 p-5 border border-gray-200 rounded-md shadow-md relative mt-2"
+    style={{ width: "270px", minHeight: "198px" }} // Set minHeight to ensure consistent height
   >
-    <div className="card-image  flex px-4  items-start">
-      <img src={image} alt={header} />
-      <div className="flex flex-col  ml-2">
+    <div className="card-header flex items-center mb-4">
+      {" "}
+      {/* Added margin bottom */}
+      <Image src={image} alt={header} className="mr-2" />{" "}
+      {/* Added margin right */}
+      <div>
         <h3 className="text-lg font-semibold">{header}</h3>
         <h4 className="text-sm text-gray-500">{subheader}</h4>
       </div>
     </div>
 
-    {/* <div className="card-content flex ">
-      <p className="mt-2">{content}</p>
-    </div> */}
+    {/* Added padding top */}
+    <div className="card-content">
+      <p>{content}</p>
+    </div>
   </div>
 );
 
 
-function index() {
+
+
+function Testimonials() {
   return (
-    <div className="  flex flex-col items-center justify-center px-4 sm:px-8 ">
+    <div className="  flex flex-col items-center justify-center px-4  ">
       <div className=" flex-col items-center flex gap-[8px] mb-[32px]">
         <p className=" items-center justify-center text-lg font-normal leading-7 tracking-tighter">
           Testimonials
@@ -44,8 +49,8 @@ function index() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 justify-start items-start  ml-2">
-        <div className="col-span-1 ">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-4 ml-2 mb-8  ">
+        <div className="col-span-1">
           <Card
             image="/assets/ClientDP.svg"
             header="Dianne Russell"
@@ -54,14 +59,6 @@ function index() {
           />
         </div>
         {/* Add more Card components here to fill the grid */}
-        {/* <div className="col-span-1 ">
-          <Card
-            image="/assets/ClientDP.svg"
-            header="Dianne Russell"
-            subheader="Product Manager"
-            content={TextContent}
-          />
-        </div>
         <div className="col-span-1 ">
           <Card
             image="/assets/ClientDP.svg"
@@ -73,7 +70,7 @@ function index() {
         <div className="col-span-1 ">
           <Card
             image="/assets/ClientDP.svg"
-            header="Dianne Russell"
+            header="Mark Renault"
             subheader="Product Manager"
             content={TextContent}
           />
@@ -81,7 +78,7 @@ function index() {
         <div className="col-span-1 ">
           <Card
             image="/assets/ClientDP.svg"
-            header="Dianne Russell"
+            header="Dianne Hamilton"
             subheader="Product Manager"
             content={TextContent}
           />
@@ -89,7 +86,7 @@ function index() {
         <div className="col-span-1 ">
           <Card
             image="/assets/ClientDP.svg"
-            header="Dianne Russell"
+            header="Laurent Reynald"
             subheader="Product Manager"
             content={TextContent}
           />
@@ -97,7 +94,7 @@ function index() {
         <div className="col-span-1 ">
           <Card
             image="/assets/ClientDP.svg"
-            header="Dianne Russell"
+            header=" Reynold Ives"
             subheader="Product Manager"
             content={TextContent}
           />
@@ -105,7 +102,7 @@ function index() {
         <div className="col-span-1 ">
           <Card
             image="/assets/ClientDP.svg"
-            header="Dianne Russell"
+            header="Gregory whitney"
             subheader="Product Manager"
             content={TextContent}
           />
@@ -113,14 +110,22 @@ function index() {
         <div className="col-span-1 ">
           <Card
             image="/assets/ClientDP.svg"
-            header="Dianne Russell"
+            header=" Pierre Mascot"
             subheader="Product Manager"
             content={TextContent}
           />
-        </div> */}
+        </div>
+        <div className="col-span-1 ">
+          <Card
+            image="/assets/ClientDP.svg"
+            header="Courtney Henry"
+            subheader="Product Manager"
+            content={TextContent}
+          />
+        </div>
       </div>
     </div>
   );
 }
 
-export default index;
+export default Testimonials;
