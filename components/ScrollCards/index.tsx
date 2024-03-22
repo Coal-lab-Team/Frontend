@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
 }) => (
   <div
     className="card flex flex-col p-4 border border-gray-200 rounded-md shadow-md bg-[#B3C6C6] relative mt-2 whitespace-nowrap"
-    style={{ width: "250px", height: "300px" }}
+    style={{ width: "250px", minHeight: "300px" }}
   >
     <div className="card-image">
       <img src={image} alt={header} />
@@ -76,7 +76,7 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
   );
 };
 
-const YourComponent = () => (
+const CardScroll = () => (
   <ScrollableCards>
     <Card
       header="Painting "
@@ -208,4 +208,4 @@ const YourComponent = () => (
   </ScrollableCards>
 );
 
-export default YourComponent;
+export default CardScroll;
