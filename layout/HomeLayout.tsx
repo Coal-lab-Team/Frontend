@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Header from "@/components/Header";
 import ScrollableCards from "@/components/ScrollCards";
 import Testimonials from "@/components/Testimonials";
+import Templates from "@/components/Templates";
 
 
 
@@ -20,7 +21,8 @@ export default function HomeLayout({
       <Navbar />
       <Header/>
       <ScrollableCards/>
-      {children}
+      {/* {children} */}
+      <Templates/>
       <Testimonials/>
       <Footer />
     </>
