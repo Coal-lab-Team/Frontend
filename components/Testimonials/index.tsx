@@ -7,9 +7,8 @@ interface CardProps {
   header: string;
   subheader: string;
   content: string;
-  image: string; // Path to the image
+  image: string; 
 }
-
 
 const Card: React.FC<CardProps> = ({ header, subheader, content, image }) => (
   <div
@@ -19,7 +18,13 @@ const Card: React.FC<CardProps> = ({ header, subheader, content, image }) => (
     <div className="card-header flex items-center mb-4">
       {" "}
       {/* Added margin bottom */}
-      <Image src={image} alt={header} className="mr-2" />{" "}
+      <Image
+        src={image}
+        alt={header}
+        width={62}
+        height={62}
+        className="mr-2"
+      />{" "}
       {/* Added margin right */}
       <div>
         <h3 className="text-lg font-semibold">{header}</h3>
@@ -34,14 +39,11 @@ const Card: React.FC<CardProps> = ({ header, subheader, content, image }) => (
   </div>
 );
 
-
-
-
 function Testimonials() {
   return (
     <div className="  flex flex-col items-center justify-center px-4  ">
       <div className=" flex-col items-center flex gap-[8px] mb-[32px]">
-        <p className=" items-center justify-center text-lg font-normal leading-7 tracking-tighter">
+        <p className="  text-lg font-normal leading-7 tracking-tighter">
           Testimonials
         </p>
         <h2 className="  text-center text-4xl md:text-2xl sm:text-xl font-bold leading-10 tracking-tighter">
@@ -129,3 +131,5 @@ function Testimonials() {
 }
 
 export default Testimonials;
+
+
