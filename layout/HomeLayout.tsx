@@ -20,7 +20,7 @@ export default function HomeLayout({
       <Navbar />
       <Header/>
       <ScrollableCards/>
-      {/* {children} */}
+      {children}
       <Testimonials/>
       <Footer />
     </>
