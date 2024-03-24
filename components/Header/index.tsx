@@ -204,12 +204,12 @@ const Header = () => {
                 {/* <div className="divider bg-gray-300 h-full w-px"></div> */}
                 <div className="border-l border-gray-300 h-6 mr-1 ml-1"></div>{" "}
                 <div className="relative">
-                  <select className="appearance-none border-none bg-transparent text-[#BBB] outline-none pr-4 py-2 pl-1 text-sm md:text-base">
+                  <select className="appearance-none border-none bg-transparent text-[#BBB] outline-none pr-4 py-2 pl-1 text-sm md:text-base ">
                     <option value="" disabled selected hidden>
                       All Categories
                     </option>
                     <option
-                      className="text-[#265D5C] text-center"
+                      className="text-[#265D5C] text-center "
                       value="category1"
                     >
                       UI Kits

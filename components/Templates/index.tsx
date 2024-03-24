@@ -76,19 +76,19 @@ function Templates() {
       image: "/assets/informaz.svg",
     },
     {
-      title: "Card 2",
+      title: "Landing pages",
       description: `Creator's Name`,
       image: "/assets/news.svg",
     },
     {
-      title: "Card 3",
+      title: "Landing pages",
       description: `Creator's Name`,
       image: "/assets/newYorkTimes.svg",
       width: "369px",
       height: "275px",
     },
     {
-      title: "Card 4",
+      title: "Landing pages",
       description: `Creator's Name`,
       image: "/assets/magazine.svg",
     },
@@ -99,23 +99,23 @@ function Templates() {
   const cards2 = [
     {
       title: "Icon 1",
-      description: "Description for Icon 1",
-      image: "https://via.placeholder.com/300x200",
+      description: `Creator's Name`,
+      image: "/assets/informaz.svg",
     },
     {
       title: "Icon 2",
-      description: "Description for Icon 2",
-      image: "https://via.placeholder.com/300x200",
+      description: `Creator's Name`,
+      image: "/assets/informaz.svg",
     },
     {
       title: "Icon 3",
-      description: "Description for Icon 3",
-      image: "https://via.placeholder.com/300x200",
+      description: `Creator's Name`,
+      image: "/assets/informaz.svg",
     },
     {
       title: "Icon 4",
-      description: "Description for Icon 4",
-      image: "https://via.placeholder.com/300x200",
+      description: `Creator's Name`,
+      image: "/assets/informaz.svg",
     },
     // Add more icons as needed
   ];
@@ -163,8 +163,8 @@ function Templates() {
       title: "Card 3",
       description: `Creator's Name`,
       image: "/assets/newYorkTimes.svg",
-      width: "369px",
-      height: "275px",
+      // width: "369px",
+      // height: "275px",
     },
     {
       title: "Card 4",
@@ -242,7 +242,7 @@ function Templates() {
       </div>
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
         {/* Map through the first set of cards and render each card */}
-        {cards3.map((card, index) => (
+        {cards4.map((card, index) => (
           <Card
             key={index}
             title={card.title}
