@@ -54,7 +54,7 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
   };
 
   return (
-    <div className="scrollable-container relative">
+    <div className="scrollable-container relative no-scroll">
       <button
         onClick={scrollLeft}
         className="absolute top-1/2 -translate-y-1/2 hover:bg-gray-100 rounded-full p-2 left-0"
@@ -62,8 +62,11 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
       >
         <IoIosArrowBack />
       </button>
-      <div className="scrollable-content overflow-x-auto flex" ref={scrollRef}>
-        <div className="cards flex space-x-4">{children}</div>
+      <div
+        className="scrollable-content overflow-x-auto flex no-scroll"
+        ref={scrollRef}
+      >
+        <div className="cards flex space-x-4 ">{children}</div>
       </div>
       <button
         onClick={scrollRight}

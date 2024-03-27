@@ -36,3 +36,7 @@ input[type='number']::-webkit-outer-spin-button {
   color: white;
   background: #FED3A6;
 }
+
+.no-scroll::-webkit-scrollbar {
+  width: 0.5px;
+}
