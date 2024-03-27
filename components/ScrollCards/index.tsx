@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({
   buttonText,
 }) => (
   <div
-    className="card flex flex-col p-4 border border-gray-200 rounded-md shadow-md bg-[#B3C6C6] relative mt-2 whitespace-nowrap"
+    className="card flex flex-col p-8 border border-gray-200 rounded-md shadow-md bg-[#B3C6C6] relative mt-2 whitespace-nowrap"
     style={{ width: "250px", minHeight: "300px" }}
   >
     <div className="card-image">
@@ -54,7 +54,7 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
   };
 
   return (
-    <div className="scrollable-container relative no-scroll">
+    <div className="scrollable-container relative">
       <button
         onClick={scrollLeft}
         className="absolute top-1/2 -translate-y-1/2 hover:bg-gray-100 rounded-full p-2 left-0"
@@ -63,7 +63,7 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
         <IoIosArrowBack />
       </button>
       <div
-        className="scrollable-content overflow-x-auto flex no-scroll"
+        className="scrollable-content overflow-x-hidden flex "
         ref={scrollRef}
       >
         <div className="cards flex space-x-4 ">{children}</div>
