@@ -45,27 +45,7 @@ const Card: React.FC<CardProps> = ({ title, description, image }) => {
     </div>
   );
 };
-// const Card: React.FC<CardProps> = ({ title, description, image }) => {
-//   return (
-//     <div className="relative rounded-lg overflow-hidden shadow-md">
-//       {/* Background color */}
-//       <div className="absolute inset-0  bg-white-600 opacity-75"></div>
-//       {/* Content */}
-//       <div className="relative bg-white p-4">
-//         {/* Image */}
-//         <div
-//           className="w-full h-32 bg-cover bg-center bg-no-repeat"
-//           style={{ backgroundImage: `url(${image})` }}
-//         ></div>
-//         {/* Text */}
-//         <div className="mt-4">
-//           <h3 className="text-lg font-semibold mb-2">{title}</h3>
-//           <p className="text-gray-600">{description}</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+
 
 function Templates() {
   // Sample data for the First set of cards
