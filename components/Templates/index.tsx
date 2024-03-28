@@ -22,6 +22,7 @@
 import React from "react";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import Button from "../Ui/Button";
+import Image from "next/image";
 
 // Define the type for the props
 interface CardProps {
@@ -35,7 +36,7 @@ const Card: React.FC<CardProps> = ({ title, description, image }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-md">
       {/* Dummy image */}
-      <img
+      <Image
         src={image}
         alt={title}
         className="w-full h-32 object-cover mb-4  rounded-md "
