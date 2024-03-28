@@ -1,28 +1,6 @@
-// import React from "react";
-// import { IoChevronForwardOutline } from "react-icons/io5";
-// import Button from "../Ui/Button";
-
-// function Templates() {
-//   return (
-//     <div className="flex flex-col w-full min-h-[550px] max-w-[1240px] px-4 sm:px-8 xl:px-10 2xl:px-14 mt-[32px]">
-//       <div className="flex justify-between items-center gap-24">
-//         <div>Templates</div>
-//         <Button className="flex items-center gap-10 bg-transparent border-none">
-//           <div>See all</div>
-//           <IoChevronForwardOutline />
-//         </Button>
-//       </div>
-//       <div className=""></div>
-//     </div>
-//   );
-// }
-
-// export default Templates;
-
 import React from "react";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import Button from "../Ui/Button";
-import Image from "next/image";
 
 // Define the type for the props
 interface CardProps {
@@ -36,7 +14,7 @@ const Card: React.FC<CardProps> = ({ title, description, image }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-md">
       {/* Dummy image */}
-      <Image
+      <img
         src={image}
         alt={title}
         className="w-full h-32 object-cover mb-4  rounded-md "
@@ -46,7 +24,6 @@ const Card: React.FC<CardProps> = ({ title, description, image }) => {
     </div>
   );
 };
-
 
 function Templates() {
   // Sample data for the First set of cards
