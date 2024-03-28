@@ -238,10 +238,8 @@
 
 // export default Header;
 
-
-
 // both box slide in framer========
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Ui/Button";
 import Link from "next/link";
 import { BsLightningCharge } from "react-icons/bs";
@@ -252,6 +250,18 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const Header = () => {
+  const [showOptions, setShowOptions] = useState(false);
+  const [showOptionsOnArrowClick, setShowOptionsOnArrowClick] = useState(false);
+
+  const handleArrowClick = () => {
+    setShowOptionsOnArrowClick(!showOptionsOnArrowClick);
+  };
+
+  const handleSelectClick = () => {
+    setShowOptions(false);
+    setShowOptionsOnArrowClick(!showOptionsOnArrowClick);
+  };
+
   return (
     <header className="w-full h-full bg-[#1B4241]">
       <div className="flex flex-col md:flex-row justify-between items-start w-full min-h-[550px] max-w-[1440px] px-4 sm:px-8 xl:px-10 2xl:px-14">
@@ -291,7 +301,10 @@ const Header = () => {
                 </div>
                 <div className="border-l border-gray-300 h-6 mr-1 ml-1"></div>{" "}
                 <div className="relative">
-                  <select className="appearance-none border-none bg-transparent text-[#BBB] outline-none pr-4 py-2 pl-1 text-sm md:text-base ">
+                  <select
+                    className="appearance-none border-none bg-transparent text-[#BBB] outline-none pr-4 py-2 pl-1 text-sm md:text-base "
+                    onClick={handleSelectClick}
+                  >
                     <option value="" disabled selected hidden>
                       All Categories
                     </option>
@@ -321,7 +334,13 @@ const Header = () => {
                     </option>
                   </select>
                   <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                    <HiOutlineChevronDown className="text-gray-400" />
+                    <HiOutlineChevronDown
+                      // className="text-gray-400"
+                      className={`text-gray-400 ${
+                        showOptionsOnArrowClick ? "transform rotate-180" : ""
+                      }`}
+                      onClick={handleArrowClick}
+                    />
                   </div>
                 </div>
               </div>
