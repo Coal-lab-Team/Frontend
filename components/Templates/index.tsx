@@ -1,6 +1,7 @@
 import React from "react";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import Button from "../Ui/Button";
+import Image from "next/image";
 
 // Define the type for the props
 interface CardProps {
@@ -14,11 +15,14 @@ const Card: React.FC<CardProps> = ({ title, description, image }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-md">
       {/* Dummy image */}
-      <img
+      {/* <img
         src={image}
         alt={title}
         className="w-full h-32 object-cover mb-4  rounded-md "
-      />
+      /> */}
+      <div className="relative w-full h-32 mb-4 rounded-md overflow-hidden">
+        <Image src={image} alt={title} layout="fill" objectFit="cover" />
+      </div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
