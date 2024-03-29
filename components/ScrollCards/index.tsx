@@ -58,12 +58,13 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
       <button
         onClick={scrollLeft}
         className="absolute top-1/2 -translate-y-1/2 hover:bg-gray-100 rounded-full p-2 left-0"
-        style={{ zIndex: 1 }} // Ensure the arrow is above the cards
+        style={{ zIndex: 1 , fontSize: "1.5rem", color: "#000"  }} // Ensure the arrow is above the cards
       >
         <IoIosArrowBack />
       </button>
       <div
         className="scrollable-content overflow-x-hidden flex "
+        // scrollable-content overflow-x-auto flex
         ref={scrollRef}
       >
         <div className="cards flex space-x-4 ">{children}</div>
@@ -71,7 +72,7 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
       <button
         onClick={scrollRight}
         className="absolute top-1/2 -translate-y-1/2 hover:bg-gray-100 rounded-full p-2 right-0"
-        style={{ zIndex: 1 }} // Ensure the arrow is above the cards
+        style={{ zIndex: 1 , fontSize: "1.5rem", color: "#000"  }} // Ensure the arrow is above the cards
       >
         <IoIosArrowForward />
       </button>
