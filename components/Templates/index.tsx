@@ -13,7 +13,8 @@ interface CardProps {
 // Card component with dummy details
 const Card: React.FC<CardProps> = ({ title, description, image }) => {
   return (
-    <div className="bg-white rounded-lg p-4 shadow-md">
+    <div className="bg-white rounded-lg p-4 shadow-md overflow-hidden transform transition-transform hover:scale-105">
+      {/* bg-white rounded-lg p-4 shadow-md */}
       {/* Dummy image */}
       {/* <img
         src={image}
@@ -139,7 +140,7 @@ function Templates() {
   return (
     <div className="flex flex-col w-full min-h-[550px] max-w-[1240px] px-4 sm:px-8 xl:px-10 2xl:px-14 mt-[80px] mb-[80px] ">
       {/* First set of cards */}
-      <div className="flex justify-between items-center gap-24 ">
+      <div className="flex justify-between items-center gap-24">
         <div className="text-lg font-bold">Templates</div>
         <Button className="flex items-center gap-2 text-[#265D5C]">
           See all <IoChevronForwardOutline className="h-4 w-4" />
