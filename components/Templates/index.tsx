@@ -140,13 +140,13 @@ function Templates() {
   return (
     <div className="flex flex-col w-full min-h-[550px] max-w-[1240px] px-4 sm:px-8 xl:px-10 2xl:px-14 mt-[80px] mb-[80px] ">
       {/* First set of cards */}
-      <div className="flex justify-between items-center gap-24">
-        <div className="text-lg font-bold">Templates</div>
+      <div className="flex justify-between items-center gap-24 animate-slide-right">
+        <div className="text-lg font-bold">Templates </div>
         <Button className="flex items-center gap-2 text-[#265D5C]">
           See all <IoChevronForwardOutline className="h-4 w-4" />
         </Button>
       </div>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 mb-6  ">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 mb-6 animate-slide-right ">
         {/* Map through the first set of cards and render each card */}
         {cards1.map((card, index) => (
           <Card
@@ -159,13 +159,13 @@ function Templates() {
       </div>
 
       {/* Second set of cards */}
-      <div className="flex justify-between items-center gap-24">
+      <div className="flex justify-between items-center gap-24 animate-slide-up">
         <div className="text-lg font-bold">Icons</div>
         <Button className="flex items-center text-blue-100">
           See all <IoChevronForwardOutline className="h-4 w-4 ml-1" />
         </Button>
       </div>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-6 mt-8">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-6 mt-8 animate-slide-up">
         {/* Map through the second set of cards and render each card */}
         {cards2.map((card, index) => (
           <Card
@@ -178,13 +178,13 @@ function Templates() {
       </div>
 
       {/* Third set of cards */}
-      <div className="flex justify-between items-center gap-24">
+      <div className="flex justify-between items-center gap-24 animate-slide-left">
         <div className="text-lg font-bold">Web apps</div>
         <Button className="flex items-center gap-2 text-[#265D5C]">
           See all <IoChevronForwardOutline className="h-4 w-4" />
         </Button>
       </div>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  mb-6 mt-8">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  mb-6 mt-8 animate-slide-left">
         {/* Map through the first set of cards and render each card */}
         {cards3.map((card, index) => (
           <Card
@@ -197,13 +197,13 @@ function Templates() {
       </div>
 
       {/* Fourth set of cards */}
-      <div className="flex justify-between items-center gap-24">
+      <div className="flex justify-between items-center md:gap-24 animate-slide-right">
         <div className="text-lg font-bold">Mobile apps</div>
         <Button className="flex items-center gap-2 text-blue-100">
           See all <IoChevronForwardOutline className="h-4 w-4" />
         </Button>
       </div>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 animate-slide-right">
         {/* Map through the first set of cards and render each card */}
         {cards4.map((card, index) => (
           <Card
