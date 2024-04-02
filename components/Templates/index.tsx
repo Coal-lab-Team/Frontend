@@ -22,7 +22,12 @@ const Card: React.FC<CardProps> = ({ title, description, image }) => {
         className="w-full h-32 object-cover mb-4  rounded-md "
       /> */}
       <div className="relative w-full h-32 mb-4 rounded-md overflow-hidden">
-        <Image src={image} alt={title} layout="fill" objectFit="cover" />
+        <Image
+          src={image}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
       <div className="mt-[8px]">
         <label className="text-md font-semibold">{title}</label>
