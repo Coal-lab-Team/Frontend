@@ -24,8 +24,13 @@ const Card: React.FC<CardProps> = ({ title, description, image }) => {
       <div className="relative w-full h-32 mb-4 rounded-md overflow-hidden">
         <Image src={image} alt={title} layout="fill" objectFit="cover" />
       </div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <div className="mt-[8px]">
+        <label className="text-md font-semibold">{title}</label>
+      </div>
+      <div className=" flex   gap-2 flex-row mt-[8px]">
+        <Image src="/assets/ClientDP.svg" alt={"dp"} width={20} height={20} />
+        <p className="text-gray-600">{description}</p>
+      </div>
     </div>
   );
 };
