@@ -30,13 +30,14 @@ const Navbar = () => {
       className={cn(
         " max-[500px]:py-2 shadow-lg shadow-slate-800/20 px-4 sm:px-8 xl:px-10 2xl:px-14 flex w-full justify-between items-center  transition-colors duration-500",
         scrollHeight > 200
-          ? " fixed top-0 left-0 z-50 bg-white-100 py-3 border-b border-gray-200 shadow-md"
-          
-          // fixed backdrop-blur-xl top-0 left-0  z-50 -translate-y-28 opacity-0 animate-slideDown bg-white-100 py-3 border-b border-gray-200 shadow-md
-          : "md:py-3 py-3",
+          ? "fixed backdrop-blur-xl top-0 left-0  z-50 -translate-y-28 opacity-0 animate-slideDown bg-white-100 py-3 border-b border-gray-200 shadow-md "
+          : // fixed top-0 left-0 z-50 bg-white-100 py-3 border-b border-gray-200 shadow-md
+
+            "md:py-3 py-3",
+
         {
-          " bg-opacity-85 ": scrollHeight > 800 && scrollHeight < 4300,
-          // bg-white/60
+          " bg-white/60": scrollHeight > 800 && scrollHeight < 4300,
+          //bg-opacity-85
         }
       )}
     >
@@ -71,7 +72,7 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      
+
       <div className="hidden lg:flex gap-x-3 xl:gap-x-5">
         <Link href="/auth/login">
           <Button
