@@ -43,13 +43,13 @@ const ScrollableCards: React.FC<ScrollableCardsProps> = ({ children }) => {
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollLeft -= 100; // Example: Scroll 100 pixels to the left
+      scrollRef.current.scrollLeft -= 100; // Scroll 100 pixels to the left
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollLeft += 100; // Example: Scroll 100 pixels to the right
+      scrollRef.current.scrollLeft += 100; //  Scroll 100 pixels to the right
     }
   };
 
