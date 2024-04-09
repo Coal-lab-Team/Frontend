@@ -14,20 +14,8 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, description, image }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-md overflow-hidden transform transition-transform hover:scale-105">
-      {/* bg-white rounded-lg p-4 shadow-md */}
-      {/* Dummy image */}
-      {/* <img
-        src={image}
-        alt={title}
-        className="w-full h-32 object-cover mb-4  rounded-md "
-      /> */}
       <div className="relative w-full h-32 mb-4 rounded-md overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-        />
+        <Image src={image} alt={title} layout="fill" objectFit="cover" />
       </div>
       <div className="mt-[8px]">
         <label className="text-md font-semibold">{title}</label>
@@ -90,7 +78,7 @@ function Templates() {
       description: `Creator's Name`,
       image: "/assets/informaz.svg",
     },
-    // Add more icons as needed
+    // More icons cards can be inserted when needed
   ];
 
   // Sample data for the third set of cards

@@ -5,8 +5,8 @@ interface CardProps {
   header: string;
   subheader: string;
   content: string;
-  image: string; // Path to the image
-  buttonText: string; // Text for the button
+  image: string; 
+  buttonText: string; 
 }
 
 const Card: React.FC<CardProps> = ({
@@ -208,7 +208,6 @@ const CardScroll = () => (
       image="/assets/UI.svg"
       buttonText="UI Design"
     />
-    {/* Add more cards with different content and button texts as needed */}
   </ScrollableCards>
 );
 
