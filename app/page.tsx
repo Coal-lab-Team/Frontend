@@ -2,9 +2,16 @@
 "use client";
 import HomeLayout from "@/layout/HomeLayout";
 import { Suspense, useEffect, useState } from "react";
+import { FiLoader } from "react-icons/fi";
+
+// const LoadingSpinner = () => (
+//   <div className="flex items-center justify-center mt-[2rem]">Loading...</div>
+// );
 
 const LoadingSpinner = () => (
-  <div className="flex items-center justify-center mt-[2rem]">Loading...</div>
+  <div className="flex items-center justify-center h-screen">
+    <FiLoader className="animate-spin h-12 w-12 text-green-500" />
+  </div>
 );
 
 // Example asynchronous function
